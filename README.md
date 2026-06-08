@@ -228,7 +228,7 @@ Tasks: ∞ running
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
-<img src="https://github.com/arman080325/arman080325/blob/output/github-contribution-grid-snake-dark.svg" width="100%" alt="GitHub Contribution Snake"/>
+<img src="https://raw.githubusercontent.com/arman080325/arman080325/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" width="100%"/>
 
 <sub>crafted in the terminal · fueled by curiosity · running on Kali Linux</sub><br>
 <sub>© 2026 Arman Khan — all exploits authorized</sub>
