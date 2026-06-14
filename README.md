@@ -198,7 +198,11 @@ ops = {
 
 <img width="92%" src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=arman080325&theme=github_dark" alt="summary"/>
 
-<img src="https://github-profile-trophy.vercel.app/?username=arman080325&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="trophies"/>
+<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=arman080325&theme=github_dark" alt="repos-per-language"/>
+<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=arman080325&theme=github_dark" alt="most-commit-language"/>
+
+<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=arman080325&theme=github_dark" alt="stats-card"/>
+<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=arman080325&theme=github_dark&utcOffset=5.5" alt="productive-time"/>
 
 </div>
 
