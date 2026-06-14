@@ -1,236 +1,169 @@
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  HEADER  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
+
 <div align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=00FF41&center=true&vCenter=true&width=700&lines=Building+the+Web.+Breaking+the+Bad.;Full-Stack+Developer+%7C+Security+Researcher;Ethical+Hacker+%7C+CTF+Player;Code.+Hack.+Secure.+Repeat." alt="Typing SVG" />
-  <br>
-  <img src="https://komarev.com/ghpvc/?username=arman080325&style=flat-square&color=00ff41&label=VISITORS" alt="visitor count"/>
+
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:003b1c,100:00ff41&height=220&section=header&text=armanxploits&fontColor=00ff41&fontSize=72&fontAlignY=38&animation=fadeIn&desc=build%20it%20%E2%80%A2%20break%20it%20%E2%80%A2%20harden%20it&descAlignY=60&descSize=18&descColor=9be9a8" alt="header"/>
+
+<a href="https://github.com/arman080325">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=900&color=00FF41&center=true&vCenter=true&width=720&height=46&lines=root%40fsociety%3A~%23+initiating+breach+sequence...;Full-Stack+Developer+%2F%2F+Security+Researcher;Web+Pentester+%E2%80%A2+Wireless+Attacker+%E2%80%A2+CTF+Player;If+you+can+build+it%2C+you+can+break+it." alt="typing"/>
+</a>
+
+<br>
+
+<img src="https://komarev.com/ghpvc/?username=arman080325&style=flat-square&color=00ff41&label=INTRUSIONS+DETECTED" alt="visitors"/>
+&nbsp;
+<img src="https://img.shields.io/badge/STATUS-ALWAYS_HACKING-00ff41?style=flat-square&labelColor=0d1117" alt="status"/>
+&nbsp;
+<img src="https://img.shields.io/badge/OS-Kali_Linux-557C94?style=flat-square&logo=kalilinux&logoColor=white&labelColor=0d1117" alt="os"/>
+
 </div>
 
----
-
-## `whoami`
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  WHOAMI  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 ```bash
-armanxploits@fsociety:~$ id && whoami --verbose
+armanxploits@fsociety:~$ ./whoami.sh --verbose
 ```
 
 ```yaml
-name: Arman Khan
-alias: armanxploits
-role: Full-Stack Developer & Ethical Hacker
-location: India 🇮🇳
-degree: B.Tech CSE (2023-2027) — Silicon Institute of Technology, Bhubaneswar
-specialty: Web App Pentesting · Network Security · Wireless Attacks · Exploit Dev
-os: Kali Linux (ASUS TUF Gaming F16)
-shell: zsh + Oh-My-Zsh + Powerlevel10k
-mindset: "If you can build it")). you can break it. If you can break it, you can harden it."
-status: Always learning, always hacking (ethically)
+identity:
+  name      : Arman Khan
+  handle    : armanxploits
+  role      : Full-Stack Developer & Ethical Hacker
+  location  : India 🇮🇳
+  education  : B.Tech CSE '23–'27 · Silicon Institute of Technology, Bhubaneswar
+focus:
+  offense   : [ Web App Pentesting, Network Security, Wireless Attacks, Exploit Dev ]
+  defense   : [ Secure Web Apps, App Hardening, Responsible Disclosure ]
+rig:
+  machine   : ASUS TUF Gaming F16
+  shell     : zsh + Oh-My-Zsh + Powerlevel10k
+  editor    : VS Code
+mantra      : "Break it to understand it. Understand it to protect it."
 ```
 
-- 🌐 Building **responsive, high-performance web applications**
-- 🔐 Deep into **web app pentesting**, **network security** & **wireless attacks**
-- 🧠 Active on **TryHackMe**, **HackTheBox**, **PortSwigger** & CTF platforms
-- ⚡ Currently building: **Terminal-style Portfolio** + security tools & recon frameworks
-- 📫 Open to collaborations, bug bounty teams & security research
-
----
-
-## [*] CURRENT FOCUS AREAS
-
-I don’t just collect tools — here’s how I actually use them.
-
-```
-PHASE 01 — RECONNAISSANCE
-  ↳ OSINT · Subdomain Enumeration · Google Dorking · Shodan · Nmap
-
-PHASE 02 — WEAPONIZATION & DELIVERY
-  ↳ Payload crafting · Social engineering vectors · Phishing simulations
-
-PHASE 03 — EXPLOITATION
-  ↳ SQLi · XSS (Reflected/Stored/DOM) · SSRF · IDOR · Auth Bypass
-  ↳ Metasploit · Manual CVE exploitation · Privilege Escalation
-
-PHASE 04 — POST-EXPLOITATION
-  ↳ Lateral movement · Persistence · Credential harvesting · Reporting
-
-PHASE 05 — WIRELESS ATTACKS
-  ↳ WPA/WPA2 handshake capture (hcxdumptool) · Hashcat cracking
-  ↳ Bettercap MitM · ARP/DNS spoofing · Evil Twin · Deauth attacks
-
-PHASE 06 — WEB DEVELOPMENT
-  ↳ Building clean, responsive, security-conscious web apps from scratch
-  ↳ Strong focus on vanilla JavaScript, performance & writing hard-to-break code
-  ↳ Current project: Terminal/matrix-style portfolio with CTF tracker & methodology notes
-```
-
----
-
-## `cat skills.json`
-
-### 🌐 Web Development
-<div align="center">
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
-<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
-<img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white"/>
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
-<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white"/>
-<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
-</div>
-
-### 🔐 Cybersecurity & Ethical Hacking
-<div align="center">
-<img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white"/>
-<img src="https://img.shields.io/badge/Burp_Suite-Pro-ff6633?style=for-the-badge&logo=burp-suite&logoColor=white"/>
-<img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white"/>
-<img src="https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=white"/>
-<img src="https://img.shields.io/badge/Nmap-0E83CD?style=for-the-badge&logo=nmap&logoColor=white"/>
-<img src="https://img.shields.io/badge/Bettercap-ff0000?style=for-the-badge&logo=bettercap&logoColor=white"/>
-<img src="https://img.shields.io/badge/Aircrack--ng-ff0000?style=for-the-badge&logo=aircrack-ng&logoColor=white"/>
-<img src="https://img.shields.io/badge/Hashcat-ff0000?style=for-the-badge&logo=hashcat&logoColor=white"/>
-<img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54"/>
-<img src="https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
-</div>
-
----
-
-## [*] ARSENAL
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  KILL CHAIN  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <div align="center">
 
-**OFFENSE**
-<img src="https://img.shields.io/badge/Burp_Suite-Pro-ff0000?style=for-the-badge&logo=burp-suite&logoColor=white"/>
-<img src="https://img.shields.io/badge/Metasploit-ff0000?style=for-the-badge&logo=metasploit&logoColor=white"/>
-<img src="https://img.shields.io/badge/Nmap-ff0000?style=for-the-badge&logo=nmap&logoColor=white"/>
-<img src="https://img.shields.io/badge/Bettercap-ff0000?style=for-the-badge&logo=bettercap&logoColor=white"/>
-<img src="https://img.shields.io/badge/Aircrack--ng-ff0000?style=for-the-badge&logo=aircrack-ng&logoColor=white"/>
-<img src="https://img.shields.io/badge/Hashcat-ff0000?style=for-the-badge&logo=hashcat&logoColor=white"/>
-<img src="https://img.shields.io/badge/hcxdumptool-ff0000?style=for-the-badge&logo=linux&logoColor=white"/>
-
-**ENVIRONMENT**
-<img src="https://img.shields.io/badge/Kali_Linux-2024.4-ff0000?style=for-the-badge&logo=kali-linux&logoColor=white"/>
-<img src="https://img.shields.io/badge/zsh_+_Oh_My_Zsh-ff0000?style=for-the-badge&logo=gnu-bash&logoColor=white"/>
-<img src="https://img.shields.io/badge/VS_Code-ff0000?style=for-the-badge&logo=visual-studio-code&logoColor=white"/>
-<img src="https://img.shields.io/badge/Git-ff0000?style=for-the-badge&logo=git&logoColor=white"/>
+### `[ ./killchain --live ]`
 
 </div>
 
----
+```ansi
+┌─[ RECON ]──────────────► OSINT · Subdomain Enum · Google Dorking · Shodan · Nmap
+│
+├─[ WEAPONIZE ]──────────► Payload Crafting · Phishing Sim · SE Vectors
+│
+├─[ EXPLOIT ]────────────► SQLi · XSS (R/S/DOM) · SSRF · IDOR · Auth Bypass · CVE
+│
+├─[ POST-EXPLOIT ]───────► Lateral Movement · Persistence · Cred Harvesting · Reporting
+│
+├─[ WIRELESS ]───────────► WPA/WPA2 Capture · Hashcat · Evil Twin · Deauth · MitM
+│
+└─[ BUILD ]──────────────► Clean · Responsive · Security-Conscious Web Apps
+```
 
-## [*] ACTIVE OPERATIONS
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  ARSENAL  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
+
+<div align="center">
+
+### `[ cat arsenal.json ]`
+
+**⚙️  DEVELOPMENT**
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+
+**🔐  OFFENSE**
+
+![Kali](https://img.shields.io/badge/Kali-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![BurpSuite](https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=white)
+![Metasploit](https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=white)
+![Nmap](https://img.shields.io/badge/Nmap-0E83CD?style=for-the-badge&logo=nmap&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
+![Bettercap](https://img.shields.io/badge/Bettercap-A30000?style=for-the-badge&logo=linux&logoColor=white)
+![Aircrack](https://img.shields.io/badge/Aircrack--ng-A30000?style=for-the-badge&logo=wifi&logoColor=white)
+![Hashcat](https://img.shields.io/badge/Hashcat-A30000?style=for-the-badge&logo=hackthebox&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Bash](https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnubash&logoColor=white)
+
+</div>
+
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  ACTIVE OPS  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
+
+<div align="center">
+
+### `[ ps aux | grep arman ]`
+
+</div>
 
 ```python
 #!/usr/bin/env python3
-# armanxploits — current_ops.py
+# active_operations.py — armanxploits
 
-operations = {
-    "portfolio_site": {
-        "stack"    : "HTML / CSS / Vanilla JS — zero heavy frameworks",
-        "aesthetic": "dark terminal / matrix / multi-color glow",
-        "features" : ["hero animation", "CTF progress tracker", "tools grid", "methodology notes"],
-        "status"   : "SHIPPING 🔥",
-    },
-    "ethical_hacking_notes": {
-        "platform" : "GitHub — public knowledge base",
-        "topics"   : ["Bettercap MitM", "WPA cracking", "ARP/DNS spoofing", "Nmap recon", "Privilege Escalation"],
-        "status"   : "GROWING 📖",
-    },
-    "ctf_grind": {
-        "platforms": ["TryHackMe", "HackTheBox", "PortSwigger Web Academy"],
-        "latest"   : "XSS Game Level 6 — DOM-based via data: URI ✅",
-        "status"   : "ACTIVE 🎯",
-    },
-    "wireless_lab": {
-        "interface": "wlan0 — Realtek RTL8852BE",
-        "toolkit"  : ["Aircrack-ng", "hcxdumptool", "Hashcat", "Bettercap"],
-        "status"   : "ONLINE 📡",
-    },
+ops = {
+    "portfolio_site"  : { "stack": "HTML · CSS · Vanilla JS", "vibe": "terminal/matrix glow", "status": "SHIPPING 🔥" },
+    "hacking_notes"   : { "platform": "GitHub knowledge base", "topics": ["MitM","WPA","Spoofing","PrivEsc"], "status": "GROWING 📖" },
+    "ctf_grind"       : { "on": ["TryHackMe","HackTheBox","PortSwigger"], "latest": "DOM XSS via data: URI ✅", "status": "ACTIVE 🎯" },
+    "wireless_lab"    : { "iface": "wlan0 (RTL8852BE)", "kit": ["Aircrack-ng","hcxdumptool","Hashcat"], "status": "ONLINE 📡" },
 }
 ```
 
----
-
-## `git log --stat`
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  STATS  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <div align="center">
-<img height="175" src="https://github-readme-stats.vercel.app/api?username=arman080325&show_icons=true&theme=matrix&include_all_commits=true&count_private=true&hide_border=true&bg_color=0d1117&title_color=00ff41&icon_color=00ff41&text_color=ffffff" alt="GitHub Stats"/>
-<img height="175" src="https://github-readme-stats.vercel.app/api/top-langs/?username=arman080325&layout=compact&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00ff41&text_color=ffffff" alt="Top Languages"/>
+
+### `[ ./recon --target self ]`
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=arman080325&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=chartreuse-dark&bg_color=0d1117&title_color=00ff41&icon_color=00ff41&text_color=c9d1d9" alt="stats"/>
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=arman080325&layout=compact&hide_border=true&theme=chartreuse-dark&bg_color=0d1117&title_color=00ff41&text_color=c9d1d9" alt="langs"/>
+
+<img src="https://github-readme-streak-stats.herokuapp.com?user=arman080325&theme=highcontrast&hide_border=true&background=0d1117&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideNums=c9d1d9&sideLabels=9be9a8&dates=8b949e" alt="streak"/>
+
+<img width="92%" src="https://github-readme-activity-graph.vercel.app/graph?username=arman080325&bg_color=0d1117&color=00ff41&line=00ff41&point=ffffff&area=true&hide_border=true&custom_title=Commit%20Activity%20%2F%2F%20last%2031%20days" alt="activity"/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=arman080325&theme=matrix&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" alt="trophies"/>
+
 </div>
 
-<div align="center">
-<img src="https://streak-stats.demolab.com?user=arman080325&theme=matrix&hide_border=true&background=0d1117&ring=00ff41&fire=00ff41&currStreakLabel=00ff41" alt="GitHub Streak"/>
-</div>
-
----
-
-## `ls -la /projects`
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  CONNECT  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <div align="center">
-<a href="https://github.com/arman080325/Arman-Portfolio">
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=arman080325&repo=Arman-Portfolio&theme=matrix&hide_border=true&bg_color=0d1117&title_color=00ff41&icon_color=00ff41&text_color=ffffff" alt="Arman Portfolio"/>
-</a>
-</div>
 
-> 🔨 More projects coming soon — security automation tools, CTF write-ups, wireless attack scripts & recon frameworks
+### `[ netstat -an | grep ESTABLISHED ]`
 
----
-
-## `netstat -an | grep CONNECT`
-
-<div align="center">
-<a href="https://tryhackme.com"><img src="https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white"/></a>
-<a href="https://hackthebox.com"><img src="https://img.shields.io/badge/HackTheBox-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black"/></a>
 <a href="https://github.com/arman080325"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
+<a href="https://tryhackme.com"><img src="https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white"/></a>
+<a href="https://www.hackthebox.com"><img src="https://img.shields.io/badge/HackTheBox-141d2b?style=for-the-badge&logo=hackthebox&logoColor=9FEF00"/></a>
+<a href="https://portswigger.net/web-security"><img src="https://img.shields.io/badge/PortSwigger-FF6633?style=for-the-badge&logo=portswigger&logoColor=white"/></a>
+
 </div>
 
----
-
-## `cat /proc/activity`
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  ETHICS  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 ```bash
-$ top -u arman080325
+$ tail -f /var/log/ethics.log
+[OK]   Explicit authorization before every test.
+[OK]   Responsible disclosure, always.
+[OK]   I hack to learn and to protect — never to harm.
+[INFO] Scope = CTFs · home labs · authorized bug bounty programs only.
 ```
 
-```
-Tasks: ∞ running
-  🌐 [ Web Dev ] ████████████████░░░░ 78% — Building sleek UIs & REST APIs
-  🔐 [ Security ] ██████████████░░░░░░ 70% — Hunting bugs & hardening apps
-  🐚 [ Scripting ] ████████████░░░░░░░░ 60% — Automating attacks & defenses
-  📚 [ Learning ] ████████████████████ 99% — Never stops
-  ☕ [ Coffee ] ████████████████████ 100% — Always full
-```
-
----
-
-## `tail -f /var/log/hacker_ethics.log`
-
-```bash
-[INFO] I hack to learn, not to harm.
-[INFO] I use my skills to protect, not to destroy.
-[INFO] I believe in responsible disclosure.
-[INFO] I always get explicit permission before testing.
-[MOTTO] "With great power comes great responsibility." 🕷️
-```
-
-> ⚠️ **Disclaimer:** All security research and testing activities are performed ethically, legally, and only on authorized systems or intentionally vulnerable platforms (CTFs, labs, bug bounty programs). I follow responsible disclosure practices.
-
----
+<!-- ░░░░░░░░░░░░░░░░░░░░░░░░  SNAKE  ░░░░░░░░░░░░░░░░░░░░░░░░ -->
 
 <div align="center">
 
-```
-╔══════════════════════════════════════════════════════════════╗
-║  "The quieter you become, the more you are able to hear."   ║
-║                    — Kali Linux motto                        ║
-║                                                              ║
-║           Happy Hacking! Stay Ethical. Stay Dangerous. 🛡️   ║
-╚══════════════════════════════════════════════════════════════╝
-```
+<img width="100%" src="https://raw.githubusercontent.com/arman080325/arman080325/output/github-contribution-grid-snake-dark.svg" alt="snake"/>
 
-<img src="https://raw.githubusercontent.com/arman080325/arman080325/output/github-contribution-grid-snake-dark.svg" alt="GitHub Contribution Snake" width="100%"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,50:003b1c,100:0d1117&height=120&section=footer&text=stay%20ethical%20%E2%80%A2%20stay%20dangerous&fontColor=0d1117&fontSize=20&fontAlignY=70" alt="footer"/>
 
-<sub>crafted in the terminal · fueled by curiosity · running on Kali Linux</sub><br>
-<sub>© 2026 Arman Khan — all exploits authorized</sub>
+<sub>crafted in the terminal · fueled by curiosity · running on Kali Linux</sub>
 
 </div>
