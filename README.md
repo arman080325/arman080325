@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:2496ff,35:00d8ff,70:00ff9d,100:00ff41&height=230&section=header&text=Arman%20Khan&fontColor=ffffff&fontSize=68&fontAlignY=36&animation=fadeIn&desc=I%20build%20the%20web%20by%20day%20%E2%80%94%20I%20break%20it%20to%20secure%20it&descAlignY=58&descSize=17&descColor=e6f1ff" alt="header"/>
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:2496ff,35:00d8ff,70:00ff9d,100:00ff41&height=230&section=header&text=Arman%20Ahemad%20Khan&fontColor=ffffff&fontSize=68&fontAlignY=36&animation=fadeIn&desc=I%20build%20the%20web%20by%20day%20%E2%80%94%20I%20break%20it%20to%20secure%20it&descAlignY=58&descSize=17&descColor=e6f1ff" alt="header"/>
 
 <a href="https://github.com/arman080325">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=900&color=2496FF&center=true&vCenter=true&width=760&height=46&lines=%3E+Full-Stack+Developer+%7C%7C+Security+Researcher;%3E+I+architect+clean%2C+fast%2C+secure+web+apps;%3E+...+then+I+pentest+them+until+they+break;%3E+Build+it.+Break+it.+Harden+it.+Repeat." alt="typing"/>
