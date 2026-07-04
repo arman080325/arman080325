@@ -18,17 +18,11 @@
 
 </div>
 
-<!-- ════════════════════════════  MATRIX RAIN BANNER (custom SVG)  ════════════════════════════ -->
-
-<div align="center">
-<img width="100%" src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/matrix_rain_banner.svg" alt="matrix rain"/>
-</div>
-
 <!-- ════════════════════════════  DUAL IDENTITY  ════════════════════════════ -->
 
 <div align="center">
 
-###  `~$ sudo dual-boot --select-persona`
+### `~$ sudo dual-boot --select-persona`
 
 <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/terminal_glitch_banner.svg" width="620" alt="terminal boot"/>
 
@@ -38,7 +32,7 @@
 <tr>
 <td width="50%" valign="top">
 
-###  🧩 `[ BRANCH: main ]`
+### 🧩 `[ BRANCH: main ]`
 #### The Builder
 
 ```js
@@ -56,7 +50,7 @@ const developer = {
 </td>
 <td width="50%" valign="top">
 
-###  🛡️ `[ BRANCH: redteam ]`
+### 🛡️ `[ BRANCH: redteam ]`
 #### The Breaker
 
 ```js
@@ -76,6 +70,12 @@ const hacker = {
 </table>
 
 <!-- ════════════════════════════  WHOAMI  ════════════════════════════ -->
+
+<div align="center">
+
+### `~$ cat whoami.yaml`
+
+</div>
 
 ```yaml
 armanxploits@fsociety:~$ ./whoami.sh
@@ -102,7 +102,7 @@ mantra       : "If you can build it, you can break it. If you can break it, you 
 
 <div align="center">
 
-###  `~$ cat techstack.json`
+### `~$ cat techstack.json`
 
 </div>
 
@@ -147,9 +147,7 @@ mantra       : "If you can build it, you can break it. If you can break it, you 
 
 <div align="center">
 
-###  `~$ ps aux | grep arman`
-
-<img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/matrix_rain_banner.svg" width="600" alt="matrix rain"/>
+### `~$ ps aux | grep arman`
 
 </div>
 
@@ -187,7 +185,7 @@ KILL CHAIN
 
 <div align="center">
 
-###  `~$ ls -la ~/.arsenal/`
+### `~$ ls -la ~/.arsenal/`
 
 </div>
 
@@ -206,7 +204,7 @@ KILL CHAIN
 
 <div align="center">
 
-###  `~$ cat active_operations.py`
+### `~$ cat active_operations.py`
 
 </div>
 
@@ -234,7 +232,7 @@ ops = {
 
 <div align="center">
 
-###  `~$ git log --oneline --all --graph`
+### `~$ git log --oneline --all --graph`
 
 </div>
 
@@ -285,7 +283,7 @@ ops = {
 
 <div align="center">
 
-###  `~$ ls ~/case-studies/`
+### `~$ ls ~/case-studies/`
 
 <img src="https://img.shields.io/badge/WannaCry-Ransomware_Breakdown-8B0000?style=for-the-badge&logo=Windows&logoColor=white"/>
 <img src="https://img.shields.io/badge/Pegasus_Airlines-AWS_Breach_Analysis-orange?style=for-the-badge&logo=amazonaws&logoColor=white"/>
@@ -296,7 +294,7 @@ ops = {
 
 <div align="center">
 
-###  `~$ tail -f /var/log/ethics.log`
+### `~$ tail -f /var/log/ethics.log`
 
 </div>
 
@@ -311,7 +309,7 @@ ops = {
 
 <div align="center">
 
-###  `~$ ./recon --target self`
+### `~$ ./recon --target self`
 
 <img height="170" src="https://github-readme-stats.vercel.app/api?username=arman080325&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=react&bg_color=0d1117&title_color=00d8ff&icon_color=00ff41&text_color=c9d1d9"/>
 <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=arman080325&layout=compact&hide_border=true&theme=react&bg_color=0d1117&title_color=00d8ff&text_color=c9d1d9"/>
@@ -332,7 +330,7 @@ ops = {
 
 <div align="center">
 
-###  `~$ netstat -an | grep ESTABLISHED`
+### `~$ netstat -an | grep ESTABLISHED`
 
 <a href="https://github.com/arman080325"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"/></a>
 <a href="https://tryhackme.com"><img src="https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white"/></a>
