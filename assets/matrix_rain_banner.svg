@@ -1,0 +1,965 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#001a0d"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#00ff41" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ccffcc" stop-opacity="1"/>
+    </linearGradient>
+    <mask id="fadeMask">
+      <rect x="0" y="0" width="20" height="300" fill="url(#fade)"/>
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="1200" height="300" fill="url(#bgGrad)" rx="14"/>
+  <g mask="url(#fadeMask)" transform="translate(10.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">セ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ス</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">キ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">オ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">F</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">エ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">C</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">\</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ア</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">1</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="4.31s" begin="0.13s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(30.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">S</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">サ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">Y</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">F</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">/</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ス</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="2.51s" begin="1.16s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(50.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">\</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">&</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">$</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ク</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">シ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="3.68s" begin="1.39s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(70.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00"><</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">オ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">+</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">+</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">I</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ソ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ア</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="5.36s" begin="1.68s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(90.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">エ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">S</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">#</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">T</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">E</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">=</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">O</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">サ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ウ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">ア</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">ス</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">#</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.61s" begin="2.68s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(110.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00"><</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">$</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">A</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">T</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">=</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ケ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">=</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="5.45s" begin="4.28s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(130.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">I</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">T</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ケ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">F</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">セ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ケ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">A</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="3.37s" begin="3.35s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(150.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ス</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">%</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">イ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ス</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ア</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">%</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">></text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">$</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ウ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">シ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">O</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">%</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">シ</text>
+    <text x="0" y="182" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">Y</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-196; 0,350" dur="3.45s" begin="4.95s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(170.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ク</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ソ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">キ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">セ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">S</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">F</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ソ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">C</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">\</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">C</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">></text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">=</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">ス</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-182; 0,350" dur="3.85s" begin="4.42s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(190.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">エ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">イ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">カ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ク</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">T</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ケ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">\</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">I</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ウ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28"><</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20"><</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">I</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">A</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-182; 0,350" dur="5.49s" begin="0.69s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(210.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">カ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">F</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">$</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">Y</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">&</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">カ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="3.95s" begin="4.86s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(230.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ソ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">A</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">コ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">A</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">オ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">T</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="3.17s" begin="0.79s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(250.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ク</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">=</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ケ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">F</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">N</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">0</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">I</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">%</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">M</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="3.18s" begin="3.19s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(270.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">セ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">イ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">セ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">O</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">エ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">エ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">M</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ウ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">F</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">キ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="2.26s" begin="4.65s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(290.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ソ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">N</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">I</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">\</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">シ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">F</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">サ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">@</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">></text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">Y</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">=</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">*</text>
+    <text x="0" y="182" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">N</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-196; 0,350" dur="2.62s" begin="2.38s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(310.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">&</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">1</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">C</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">S</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ス</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">C</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ス</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="3.69s" begin="1.24s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(330.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ス</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ウ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ア</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">&</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ウ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">A</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="2.22s" begin="3.54s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(350.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">F</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">キ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">O</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">O</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">R</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">セ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">R</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">/</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">サ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="2.99s" begin="3.34s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(370.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">\</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">/</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">A</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">イ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">Y</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">Y</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">オ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">イ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">></text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">&</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">オ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-154; 0,350" dur="2.51s" begin="3.29s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(390.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">キ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">\</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">コ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">$</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">A</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">セ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ウ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">*</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">S</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">オ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">イ</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">Y</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">F</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-182; 0,350" dur="3.02s" begin="0.95s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(410.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">/</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">M</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">R</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">シ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">></text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">イ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ケ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36"><</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="4.96s" begin="4.84s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(430.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">#</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">\</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">S</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">M</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ク</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">サ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">#</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">シ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">イ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">C</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">F</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">イ</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">%</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-182; 0,350" dur="2.21s" begin="1.95s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(450.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">N</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ケ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">イ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">A</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">エ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">コ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ウ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">I</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ウ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">セ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">></text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">カ</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">O</text>
+    <text x="0" y="182" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">セ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-196; 0,350" dur="2.39s" begin="2.92s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(470.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">/</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">C</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">O</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">N</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">%</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ソ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">シ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="4.11s" begin="0.2s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(490.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">></text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">キ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">Y</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">@</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">A</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">%</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ウ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">0</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">A</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">E</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="4.41s" begin="1.57s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(510.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">F</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">シ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">A</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ソ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">キ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">+</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ウ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="5.49s" begin="4.98s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(530.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">*</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">F</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">@</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">E</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">Y</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">N</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">0</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">S</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-112; 0,350" dur="5.1s" begin="1.85s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(550.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ソ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">カ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">オ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">S</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ク</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">$</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">#</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">I</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-112; 0,350" dur="3.19s" begin="3.32s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(570.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">A</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">M</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ソ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">イ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">エ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">T</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">\</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">$</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ア</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">0</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="2.9s" begin="1.71s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(590.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">*</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">S</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">\</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">S</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">0</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">カ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ウ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ク</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">F</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="3.3s" begin="0.65s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(610.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ク</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">\</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">キ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ア</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">@</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">=</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ア</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">+</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">シ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">セ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">オ</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">+</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">S</text>
+    <text x="0" y="182" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">/</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-196; 0,350" dur="2.32s" begin="1.85s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(630.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">コ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">/</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">1</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">コ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">&</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">/</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">セ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">$</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="5.41s" begin="3.75s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(650.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ア</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">R</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ス</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">サ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">A</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">+</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">@</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ス</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ス</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">1</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">サ</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">></text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="2.73s" begin="3.51s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(670.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">+</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">Y</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">A</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">></text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">F</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">&</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">1</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">カ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ソ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">コ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="3.28s" begin="4.32s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(690.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">オ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">I</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">\</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">+</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">%</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">\</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="4.12s" begin="4.92s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(710.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">O</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">サ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ソ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ア</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">\</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">0</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">N</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">F</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">サ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">=</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">\</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">ウ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.2s" begin="2.56s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(730.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">カ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">@</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">A</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">@</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">/</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">%</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">></text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">#</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">S</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">キ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">サ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-154; 0,350" dur="5.33s" begin="4.6s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(750.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">E</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">O</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">@</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">></text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">S</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">0</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">@</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">#</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-112; 0,350" dur="3.59s" begin="4.7s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(770.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">A</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">*</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">*</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">シ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">A</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">R</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">ケ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">エ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">#</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">A</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">T</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-154; 0,350" dur="2.89s" begin="3.93s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(790.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">@</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ス</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">サ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ク</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">1</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ア</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">セ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">R</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">E</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="4.24s" begin="0.47s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(810.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">T</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">O</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">サ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76"><</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">M</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">></text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">セ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ク</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">Y</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">0</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">オ</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">\</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="5.0s" begin="0.36s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(830.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">A</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">イ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">S</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">セ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">カ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">A</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">キ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">A</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">N</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">S</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">I</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">%</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">*</text>
+    <text x="0" y="182" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">E</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-196; 0,350" dur="2.92s" begin="4.02s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(850.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">S</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">*</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ケ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">R</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">*</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ソ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">セ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">T</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">$</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">N</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">M</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">T</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.89s" begin="4.46s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(870.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">セ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">$</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">&</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">%</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">F</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">エ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">キ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ク</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">ス</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28"><</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="2.99s" begin="2.2s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(890.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">/</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">/</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">&</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">F</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">A</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">/</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">イ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="4.49s" begin="3.53s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(910.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">O</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92"><</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">R</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">0</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">+</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">@</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-84; 0,350" dur="2.88s" begin="2.1s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(930.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">F</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">F</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">I</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">ス</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">M</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">ス</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">$</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">\</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">M</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">1</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20"><</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">&</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.69s" begin="4.27s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(950.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">A</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">キ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">E</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">F</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">1</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">></text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">C</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">O</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-112; 0,350" dur="4.41s" begin="3.99s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(970.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">キ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">A</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">コ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">イ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ソ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60"><</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">%</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">シ</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">A</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">%</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">&</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15"><</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.39s" begin="0.42s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(990.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ソ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">エ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">R</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">1</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">F</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">イ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">+</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">ス</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">Y</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">ウ</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">Y</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">ア</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="3.12s" begin="4.76s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1010.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">1</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">E</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ク</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">セ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">キ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">R</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">カ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">O</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">シ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="4.69s" begin="4.75s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1030.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ケ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">I</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">I</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">カ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ケ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">@</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">オ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">C</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">1</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">@</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">O</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-154; 0,350" dur="3.73s" begin="1.28s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1050.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">サ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ウ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">C</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">T</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">セ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">オ</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">@</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">I</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">カ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">O</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">ア</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">+</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-168; 0,350" dur="4.44s" begin="4.79s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1070.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">A</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">Y</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">&</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">0</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">/</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">M</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">オ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="3.96s" begin="3.31s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1090.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">ク</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">\</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">コ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">N</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">Y</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">$</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">E</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">F</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">R</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">A</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">\</text>
+    <text x="0" y="154" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">C</text>
+    <text x="0" y="168" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.15">$</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-182; 0,350" dur="3.63s" begin="1.81s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1110.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">$</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">*</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">セ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">A</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">O</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">E</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52"><</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-98; 0,350" dur="3.26s" begin="1.23s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1130.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">コ</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">M</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">シ</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">+</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">ソ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">&</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">$</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">I</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">$</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">S</text>
+    <text x="0" y="140" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.20">0</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-154; 0,350" dur="3.31s" begin="2.47s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1150.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">/</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">M</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">S</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">セ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">R</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">Y</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">M</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">*</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">1</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="3.9s" begin="0.96s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1170.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">@</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">C</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">=</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">R</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">S</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">N</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">+</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">\</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">S</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-126; 0,350" dur="2.51s" begin="1.11s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <g mask="url(#fadeMask)" transform="translate(1190.0,0)">
+    <g>
+    <text x="0" y="0" font-family="monospace" font-size="14" fill="url(#fade)" opacity="1.00">@</text>
+    <text x="0" y="14" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.92">ソ</text>
+    <text x="0" y="28" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.84">ス</text>
+    <text x="0" y="42" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.76">カ</text>
+    <text x="0" y="56" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.68">サ</text>
+    <text x="0" y="70" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.60">%</text>
+    <text x="0" y="84" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.52">カ</text>
+    <text x="0" y="98" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.44">F</text>
+    <text x="0" y="112" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.36">コ</text>
+    <text x="0" y="126" font-family="monospace" font-size="14" fill="url(#fade)" opacity="0.28">サ</text>
+      <animateTransform attributeName="transform" type="translate"
+        values="0,-140; 0,350" dur="3.29s" begin="3.51s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  <rect x="0" y="0" width="100%" height="100%" fill="none" stroke="#00ff41" stroke-opacity="0.25" stroke-width="2" rx="14"/>
+</svg>

@@ -1,0 +1,42 @@
+<svg width="260" height="260" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="radarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0.75"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="130" cy="130" r="128" fill="#05070a" stroke="#00ff41" stroke-opacity="0.4"/>
+  <circle cx="130" cy="130" r="128" fill="url(#radarGlow)"/>
+
+  <g stroke="#00ff41" stroke-opacity="0.35" fill="none">
+    <circle cx="130" cy="130" r="96"/>
+    <circle cx="130" cy="130" r="64"/>
+    <circle cx="130" cy="130" r="32"/>
+    <line x1="130" y1="2" x2="130" y2="258"/>
+    <line x1="2" y1="130" x2="258" y2="130"/>
+  </g>
+
+  <!-- sweep -->
+  <g transform-origin="130 130">
+    <path d="M130,130 L130,2 A128,128 0 0,1 250,90 Z" fill="url(#sweepGrad)"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 130 130" to="360 130 130" dur="3s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- blips -->
+  <circle cx="90" cy="80" r="4" fill="#00ff41">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="175" cy="150" r="4" fill="#ff2e63">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="190" r="4" fill="#00d8ff">
+    <animate attributeName="opacity" values="0;1;0" dur="3s" begin="2.3s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="130" y="140" text-anchor="middle" font-family="monospace" font-size="13" fill="#00ff41" opacity="0.85">SCANNING</text>
+</svg>
