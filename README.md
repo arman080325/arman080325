@@ -1,7 +1,7 @@
 <!-- ════════════════════════════  HEADER  ════════════════════════════ -->
-[![Portfolio](https://img.shields.io/badge/Portfolio-arman--portfolio.online-004743?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.arman-portfolio.online/)
 
 <div align="center">
+[![Portfolio](https://img.shields.io/badge/Portfolio-arman--portfolio.online-004743?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.arman-portfolio.online/)
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,15:2496ff,40:00d8ff,70:00ff9d,100:00ff41&height=260&section=header&text=Arman%20Ahemad%20Khan&fontColor=ffffff&fontSize=64&fontAlignY=34&animation=fadeIn&desc=I%20build%20the%20web%20by%20day%20%E2%80%94%20I%20break%20it%20to%20secure%20it%20by%20night&descAlignY=54&descSize=16&descColor=e6f1ff"/>
 
