@@ -1,6 +1,8 @@
 <!-- ════════════════════════════  HEADER  ════════════════════════════ -->
 <div align="center">
+
 [![Portfolio](https://img.shields.io/badge/Portfolio-arman--portfolio.online-004743?style=for-the-badge&logo=google-chrome&logoColor=white)](https://www.arman-portfolio.online/)
+
 </div>
 
 <div align="center">
@@ -321,11 +323,11 @@ ops = {
 
 <img width="92%" src="https://github-readme-activity-graph.vercel.app/graph?username=arman080325&bg_color=0d1117&color=00d8ff&line=00ff41&point=ffffff&area=true&hide_border=true&custom_title=Contribution%20Activity%20%2F%2F%20build%20%2B%20break"/>
 
-<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=arman080325&theme=github_dark"/>
-<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=arman080325&theme=github_dark"/>
+<img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=arman080325&theme=github_dark"/>
+<img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=arman080325&theme=github_dark"/>
 
-<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=arman080325&theme=github_dark"/>
-<img width="45%" src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=arman080325&theme=github_dark&utcOffset=5.5"/>
+<img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=arman080325&theme=github_dark"/>
+<img width="45%" src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=arman080325&theme=github_dark&utcOffset=5.5"/>
 
 </div>
 
