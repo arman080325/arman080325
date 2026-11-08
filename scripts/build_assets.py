@@ -1,77 +1,80 @@
 #!/usr/bin/env python3
-"""Generate the animated neon SVG components used by the profile README.
+"""Generate the animated SVG components used by the profile README.
 
-Every SVG is self-contained: fonts are subset to the characters actually used
-and embedded as base64 WOFF2, so the art renders identically on GitHub for
-everyone (GitHub blocks external resources inside <img> SVGs).
+Each component is written twice, as <name>-dark.svg and <name>-light.svg,
+so the README can switch with the viewer's GitHub theme via <picture>.
+Every SVG is self-contained: fonts are subset to the characters actually
+used and embedded as base64 WOFF2 (GitHub blocks external resources inside
+<img> SVGs). Animations are slow and subtle and are switched off for
+viewers who prefer reduced motion.
 
 Usage:
     pip install fonttools brotli
-    python3 scripts/build_assets.py --fonts <dir with the .woff files>
-
-Fonts (OFL, from @fontsource on npm): Orbitron 900, Share Tech Mono 400,
-Press Start 2P 400, Rajdhani 700.
+    npm pack @fontsource/space-grotesk @fontsource/jetbrains-mono @fontsource/inter
+    (extract the tarballs into one folder)
+    python3 scripts/build_assets.py --fonts <that folder>
 """
 import argparse
 import base64
 import io
 import os
+import random
 from xml.sax.saxutils import escape
 
 from fontTools import subset
 from fontTools.ttLib import TTFont
 
-OUT = os.path.join(os.path.dirname(__file__), "..", "assets", "neon")
-
-# ── palette ──────────────────────────────────────────────────────────────
-BG = "#07020f"
-PANEL = "#0d0620"
-MAGENTA = "#ff2a6d"
-CYAN = "#05d9e8"
-LIME = "#b8ff3c"
-YELLOW = "#f9f002"
-VIOLET = "#9d4dff"
-WHITE = "#f4f1ff"
-DIM = "#8a7fb0"
+OUT = os.path.join(os.path.dirname(__file__), "..", "assets", "ui")
 
 FONT_FILES = {
-    "orb": "orbitron-latin-900-normal.woff",
-    "mono": "share-tech-mono-latin-400-normal.woff",
-    "pix": "press-start-2p-latin-400-normal.woff",
-    "raj": "rajdhani-latin-700-normal.woff",
+    "head": "space-grotesk-latin-700-normal.woff",
+    "semi": "space-grotesk-latin-600-normal.woff",
+    "mono": "jetbrains-mono-latin-400-normal.woff",
+    "monom": "jetbrains-mono-latin-500-normal.woff",
+    "body": "inter-latin-400-normal.woff",
+    "bodym": "inter-latin-500-normal.woff",
 }
-FONT_FAMILY = {"orb": "Orb", "mono": "Mono", "pix": "Pix", "raj": "Raj"}
-_fonts = {}
+FAMILY = {k: f"F{i}" for i, k in enumerate(FONT_FILES)}
+_paths, _metrics = {}, {}
+
+THEMES = {
+    "dark": dict(page="#0d1117", panel="#161b22", border="#30363d", text="#e6edf3",
+                 muted="#8b949e", soft="#c9d1d9", accent="#3fb950", accent2="#58a6ff",
+                 grid="#21262d"),
+    "light": dict(page="#ffffff", panel="#f6f8fa", border="#d0d7de", text="#1f2328",
+                  muted="#59636e", soft="#31373d", accent="#1a7f37", accent2="#0969da",
+                  grid="#e6eaef"),
+}
+# per-project accent hues (dark, light) — GitHub-style language colours
+HUES = {
+    "green": ("#3fb950", "#1a7f37"), "blue": ("#58a6ff", "#0969da"),
+    "purple": ("#bc8cff", "#8250df"), "orange": ("#f0883e", "#bc4c00"),
+    "pink": ("#f778ba", "#bf3989"), "teal": ("#39c5cf", "#1b7c83"),
+}
 
 
+# ── font helpers ─────────────────────────────────────────────────────────
 def load_fonts(font_dir):
     for key, name in FONT_FILES.items():
-        path = None
         for root, _, files in os.walk(font_dir):
             if name in files:
-                path = os.path.join(root, name)
-        if not path:
+                _paths[key] = os.path.join(root, name)
+        if key not in _paths:
             raise SystemExit(f"missing font {name} under {font_dir}")
-        _fonts[key] = path
+        f = TTFont(_paths[key])
+        _metrics[key] = (f.getBestCmap(), f["hmtx"], f["head"].unitsPerEm)
 
 
-def text_width(key, text, size):
-    font = TTFont(_fonts[key])
-    cmap = font.getBestCmap()
-    hmtx = font["hmtx"]
-    upm = font["head"].unitsPerEm
-    total = 0
-    for ch in text:
-        glyph = cmap.get(ord(ch)) or cmap.get(ord("?"))
-        total += hmtx[glyph][0]
-    return total * size / upm
+def tw(key, text, size, spacing=0):
+    cmap, hmtx, upm = _metrics[key]
+    total = sum(hmtx[cmap.get(ord(c)) or cmap[ord("?")]][0] for c in text)
+    return total * size / upm + spacing * len(text)
 
 
 def font_face(key, chars):
     opts = subset.Options()
     opts.flavor = "woff2"
-    opts.layout_features = ["*"]
-    font = TTFont(_fonts[key])
+    font = TTFont(_paths[key])
     sub = subset.Subsetter(opts)
     sub.populate(text="".join(sorted(set(chars + " "))))
     sub.subset(font)
@@ -79,25 +82,33 @@ def font_face(key, chars):
     font.flavor = "woff2"
     font.save(buf)
     data = base64.b64encode(buf.getvalue()).decode()
-    return (f"@font-face{{font-family:{FONT_FAMILY[key]};"
-            f"src:url(data:font/woff2;base64,{data}) format('woff2');}}")
+    return f"@font-face{{font-family:{FAMILY[key]};src:url(data:font/woff2;base64,{data})}}"
+
+
+def wrap(text, key, size, max_w):
+    lines, cur = [], ""
+    for word in text.split():
+        trial = f"{cur} {word}".strip()
+        if tw(key, trial, size) <= max_w:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = word
+    return lines + ([cur] if cur else [])
 
 
 class Svg:
-    """Tiny builder that tracks which glyphs each font needs."""
-
-    def __init__(self, w, h):
-        self.w, self.h = w, h
-        self.parts = []
-        self.css = []
+    def __init__(self, w, h, theme):
+        self.w, self.h, self.t = w, h, THEMES[theme]
+        self.theme = theme
+        self.parts, self.css = [], []
         self.chars = {k: "" for k in FONT_FILES}
 
     def text(self, x, y, s, font, size, fill, extra="", cls=""):
         self.chars[font] += s
         c = f' class="{cls}"' if cls else ""
-        self.parts.append(
-            f'<text x="{x}" y="{y}" font-family="{FONT_FAMILY[font]}" '
-            f'font-size="{size}" fill="{fill}"{c} {extra}>{escape(s)}</text>')
+        self.parts.append(f'<text x="{x:.1f}" y="{y}" font-family="{FAMILY[font]}" font-size="{size}" '
+                          f'fill="{fill}"{c} {extra}>{escape(s)}</text>')
 
     def add(self, raw):
         self.parts.append(raw)
@@ -105,395 +116,251 @@ class Svg:
     def style(self, css):
         self.css.append(css)
 
-    def render(self, title):
+    def save(self, name, title):
         faces = "".join(font_face(k, v) for k, v in self.chars.items() if v)
-        css = faces + "".join(self.css) + (
-            "@media (prefers-reduced-motion:reduce){*{animation:none!important}}")
-        return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" '
-                f'height="{self.h}" viewBox="0 0 {self.w} {self.h}" role="img" '
-                f'aria-label="{escape(title)}"><title>{escape(title)}</title>'
-                f'<style>{css}</style>{"".join(self.parts)}</svg>')
+        css = (faces + "".join(self.css) +
+               "@media (prefers-reduced-motion:reduce){*{animation:none!important}}")
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}" height="{self.h}" '
+               f'viewBox="0 0 {self.w} {self.h}" role="img" aria-label="{escape(title)}">'
+               f'<title>{escape(title)}</title><style>{css}</style>{"".join(self.parts)}</svg>')
+        os.makedirs(OUT, exist_ok=True)
+        with open(os.path.join(OUT, f"{name}-{self.theme}.svg"), "w", encoding="utf-8") as f:
+            f.write(svg)
 
 
-def save(name, svg, title):
-    os.makedirs(OUT, exist_ok=True)
-    with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
-        f.write(svg.render(title))
+FADE = ("@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}"
+        ".up{animation:up .9s cubic-bezier(.2,.7,.2,1) both}")
+PULSE = ".pulse{animation:pu 2.4s ease-in-out infinite}@keyframes pu{50%{opacity:.3}}"
 
 
-def wrap(text, font, size, max_w):
-    lines, cur = [], ""
-    for word in text.split():
-        trial = f"{cur} {word}".strip()
-        if text_width(font, trial, size) <= max_w:
-            cur = trial
-        else:
-            lines.append(cur)
-            cur = word
-    if cur:
-        lines.append(cur)
-    return lines
-
-
-def scanlines(svg, opacity=0.18):
-    svg.add('<defs><pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">'
-            f'<rect width="4" height="1" fill="#000" opacity="{opacity * 3}"/></pattern></defs>')
-    svg.add(f'<rect width="{svg.w}" height="{svg.h}" fill="url(#scan)" opacity="0.6"/>')
-
-
-def hud_corners(svg, pad, color, size=18, width=3):
-    w, h = svg.w, svg.h
-    p = pad
-    for d in (f"M{p},{p + size} V{p} H{p + size}",
-              f"M{w - p - size},{p} H{w - p} V{p + size}",
-              f"M{p},{h - p - size} V{h - p} H{p + size}",
-              f"M{w - p - size},{h - p} H{w - p} V{h - p - size}"):
-        svg.add(f'<path d="{d}" fill="none" stroke="{color}" stroke-width="{width}"/>')
+def arrow(x, y, color, w=1.6):
+    """Small north-east arrow drawn as a path (no glyph needed)."""
+    return (f'<path d="M{x},{y + 9} L{x + 9},{y} M{x + 2},{y} H{x + 9} V{y + 7}" fill="none" '
+            f'stroke="{color}" stroke-width="{w}" stroke-linecap="round" stroke-linejoin="round"/>')
 
 
 # ── HERO ─────────────────────────────────────────────────────────────────
-def build_hero():
-    s = Svg(1000, 380)
-    s.style(
-        f".glitch-a{{animation:ga 3.2s infinite steps(1)}}"
-        f".glitch-b{{animation:gb 3.2s infinite steps(1)}}"
-        "@keyframes ga{0%,86%,100%{transform:translate(-3px,0)}88%{transform:translate(-14px,2px)}"
-        "90%{transform:translate(9px,-3px)}92%{transform:translate(-6px,0)}}"
-        "@keyframes gb{0%,86%,100%{transform:translate(3px,0)}88%{transform:translate(12px,-2px)}"
-        "90%{transform:translate(-10px,3px)}92%{transform:translate(5px,0)}}"
-        ".flick{animation:fl 4s infinite}"
-        "@keyframes fl{0%,100%{opacity:1}47%{opacity:1}48%{opacity:.35}49%{opacity:1}72%{opacity:.8}73%{opacity:1}}"
-        ".scanbar{animation:sb 5s linear infinite}"
-        "@keyframes sb{0%{transform:translateY(-60px)}100%{transform:translateY(440px)}}"
-        ".grid{animation:gr 1.6s linear infinite}"
-        "@keyframes gr{0%{transform:translateY(0)}100%{transform:translateY(24px)}}"
-        ".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
-        ".role{opacity:0;animation:rl 12s infinite}"
-        ".r1{animation-delay:0s}.r2{animation-delay:3s}.r3{animation-delay:6s}.r4{animation-delay:9s}"
-        "@keyframes rl{0%{opacity:0;transform:translateX(-12px)}3%,22%{opacity:1;transform:translateX(0)}"
-        "25%,100%{opacity:0;transform:translateX(12px)}}"
-        ".pulse{animation:pu 1.4s ease-in-out infinite}@keyframes pu{50%{opacity:.25}}"
-    )
-    s.add(f'<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">'
-          f'<stop offset="0" stop-color="{BG}"/><stop offset=".62" stop-color="#1a0533"/>'
-          f'<stop offset="1" stop-color="#3a0a4a"/></linearGradient>'
-          f'<linearGradient id="name" x1="0" y1="0" x2="1" y2="0">'
-          f'<stop offset="0" stop-color="{CYAN}"/><stop offset=".5" stop-color="{WHITE}"/>'
-          f'<stop offset="1" stop-color="{MAGENTA}"/></linearGradient>'
-          f'<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">'
-          f'<stop offset="0" stop-color="{CYAN}" stop-opacity="0"/>'
-          f'<stop offset=".5" stop-color="{CYAN}" stop-opacity=".22"/>'
-          f'<stop offset="1" stop-color="{CYAN}" stop-opacity="0"/></linearGradient>'
-          f'<clipPath id="floor"><rect x="0" y="262" width="1000" height="118"/></clipPath>'
-          f'<filter id="glow" x="-20%" y="-50%" width="140%" height="200%">'
-          f'<feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/>'
-          f'<feMergeNode in="SourceGraphic"/></feMerge></filter></defs>')
-    s.add('<rect width="1000" height="380" rx="14" fill="url(#sky)"/>')
-    # synthwave floor grid
-    lines = []
-    for i in range(-12, 13):
-        lines.append(f'<line x1="{500 + i * 22}" y1="262" x2="{500 + i * 160}" y2="380"/>')
-    horiz = "".join(f'<line x1="0" y1="{262 + k * 24}" x2="1000" y2="{262 + k * 24}"/>'
-                    for k in range(-1, 6))
-    s.add(f'<g clip-path="url(#floor)" stroke="{MAGENTA}" stroke-width="1.2" opacity=".55">'
-          f'{"".join(lines)}<g class="grid">{horiz}</g></g>')
-    s.add(f'<line x1="0" y1="262" x2="1000" y2="262" stroke="{MAGENTA}" stroke-width="2.5" filter="url(#glow)"/>')
-    # top status strip
-    s.text(34, 46, "root@armanxploits:~# ./init --persona=dual-boot", "mono", 17, LIME)
-    s.add(f'<rect x="465" y="32" width="10" height="17" fill="{LIME}" class="blink"/>')
-    s.add(f'<circle cx="842" cy="40" r="6" fill="{MAGENTA}" class="pulse"/>')
-    s.text(856, 46, "SYS.ONLINE", "pix", 11, MAGENTA)
-    # glitch name
-    name = "ARMAN AHEMAD KHAN"
-    size = 66
-    nx = (1000 - text_width("orb", name, size)) / 2
-    s.add('<g class="flick">')
-    s.text(round(nx, 1), 148, name, "orb", size, CYAN, 'opacity=".75"', "glitch-a")
-    s.text(round(nx, 1), 148, name, "orb", size, MAGENTA, 'opacity=".75"', "glitch-b")
-    s.text(round(nx, 1), 148, name, "orb", size, "url(#name)", 'filter="url(#glow)"')
-    s.add('</g>')
-    # handle
-    handle = "// a.k.a  ARMANXPLOITS //"
-    hx = (1000 - text_width("pix", handle, 14)) / 2
-    s.text(round(hx, 1), 186, handle, "pix", 14, YELLOW)
-    # rotating roles
-    roles = [("FULL-STACK DEVELOPER", CYAN), ("ETHICAL HACKER", MAGENTA),
-             ("CYBERSECURITY INTERN", LIME), ("B.TECH CSE // CLASS OF '27", YELLOW)]
-    for i, (r, col) in enumerate(roles, 1):
-        label = f"> {r} _"
-        rx = (1000 - text_width("raj", label, 30)) / 2
-        s.text(round(rx, 1), 236, label, "raj", 30, col, 'letter-spacing="2"', f"role r{i}")
-    # bottom tags
-    s.text(34, 356, "BUILD", "pix", 12, CYAN)
-    s.text(104, 356, "> BREAK", "pix", 12, MAGENTA)
-    s.text(212, 356, "> HARDEN", "pix", 12, LIME)
-    s.text(332, 356, "> DEPLOY", "pix", 12, YELLOW)
-    s.text(800, 356, "LOC: INDIA [IN]", "pix", 12, DIM)
-    s.add('<rect class="scanbar" x="0" y="0" width="1000" height="60" fill="url(#bar)"/>')
-    scanlines(s)
-    hud_corners(s, 12, CYAN)
-    save("hero.svg", s, "Arman Ahemad Khan — Full-Stack Developer and Ethical Hacker")
+def build_hero(theme):
+    s = Svg(1000, 330, theme)
+    t = s.t
+    s.style(FADE + PULSE +
+            ".d1{animation-delay:.1s}.d2{animation-delay:.35s}.d3{animation-delay:.6s}"
+            ".d4{animation-delay:.85s}.d5{animation-delay:1.1s}"
+            ".cur{animation:bl 1.1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
+            ".drift{animation:dr 14s ease-in-out infinite alternate}"
+            "@keyframes dr{from{transform:translate(0,0)}to{transform:translate(-160px,40px)}}"
+            ".node{animation:nd 4s ease-in-out infinite}@keyframes nd{50%{opacity:.25}}"
+            ".pkt{offset-rotate:0deg;animation:pk 7s linear infinite}"
+            "@keyframes pk{from{offset-distance:0%}to{offset-distance:100%}}")
+    s.add(f'<defs><radialGradient id="glow"><stop offset="0" stop-color="{t["accent"]}" stop-opacity=".16"/>'
+          f'<stop offset="1" stop-color="{t["accent"]}" stop-opacity="0"/></radialGradient>'
+          f'<radialGradient id="glow2"><stop offset="0" stop-color="{t["accent2"]}" stop-opacity=".12"/>'
+          f'<stop offset="1" stop-color="{t["accent2"]}" stop-opacity="0"/></radialGradient>'
+          f'<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">'
+          f'<circle cx="2" cy="2" r="1.1" fill="{t["border"]}"/></pattern>'
+          f'<linearGradient id="fadeL" x1="0" x2="1"><stop offset="0" stop-color="{t["panel"]}"/>'
+          f'<stop offset=".55" stop-color="{t["panel"]}" stop-opacity="0"/></linearGradient>'
+          f'<clipPath id="card"><rect x="1" y="1" width="998" height="328" rx="16"/></clipPath></defs>')
+    s.add(f'<g clip-path="url(#card)"><rect width="1000" height="330" fill="{t["panel"]}"/>'
+          f'<rect width="1000" height="330" fill="url(#dots)" opacity=".7"/>'
+          f'<g class="drift"><circle cx="840" cy="70" r="260" fill="url(#glow)"/></g>'
+          f'<circle cx="120" cy="330" r="220" fill="url(#glow2)"/>'
+          f'<rect width="1000" height="330" fill="url(#fadeL)"/>')
+    # network constellation on the right
+    rnd = random.Random(7)
+    nodes = [(rnd.randint(640, 960), rnd.randint(40, 290)) for _ in range(16)]
+    edges = []
+    for i, a in enumerate(nodes):
+        near = sorted(nodes, key=lambda b: (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)[1:3]
+        for b in near:
+            if (b, a) not in edges:
+                edges.append((a, b))
+    s.add(f'<g stroke="{t["muted"]}" stroke-opacity=".35" stroke-width="1">' +
+          "".join(f'<line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}"/>' for a, b in edges) + "</g>")
+    for i, (x, y) in enumerate(nodes):
+        col = t["accent"] if i % 4 == 0 else t["muted"]
+        r = 3.6 if i % 4 == 0 else 2.4
+        s.add(f'<circle class="node" style="animation-delay:-{i * 0.6:.1f}s" cx="{x}" cy="{y}" r="{r}" fill="{col}"/>')
+    route = [nodes[0]] + sorted(nodes[1:6], key=lambda p: p[0])
+    d = "M" + " L".join(f"{x},{y}" for x, y in route)
+    s.add(f'<circle class="pkt" r="3.2" fill="{t["accent2"]}" style="offset-path:path(\'{d}\')"/>')
+    s.add("</g>")
+    s.add(f'<rect x="1" y="1" width="998" height="328" rx="16" fill="none" stroke="{t["border"]}"/>')
+    # left column text
+    x = 56
+    s.add('<g class="up d1">')
+    s.text(x, 78, "arman@kali", "monom", 15, t["accent"])
+    w1 = tw("monom", "arman@kali", 15)
+    s.text(x + w1, 78, ":~$ whoami", "mono", 15, t["muted"])
+    cx = x + w1 + tw("mono", ":~$ whoami", 15) + 6
+    s.add(f'<rect class="cur" x="{cx:.0f}" y="65" width="8" height="16" fill="{t["accent"]}"/>')
+    s.add("</g>")
+    s.add('<g class="up d2">')
+    s.text(x - 3, 140, "Arman Ahemad Khan", "head", 54, t["text"], 'letter-spacing="-1"')
+    s.add("</g>")
+    s.add('<g class="up d3">')
+    s.text(x, 182, "Full-Stack Developer", "semi", 23, t["soft"])
+    w2 = tw("semi", "Full-Stack Developer", 23)
+    s.text(x + w2 + 10, 182, "&", "semi", 23, t["accent"])
+    s.text(x + w2 + 34, 182, "Ethical Hacker", "semi", 23, t["soft"])
+    s.add("</g>")
+    s.add('<g class="up d4">')
+    s.text(x, 222, "I build fast, secure web apps, then test them the way", "body", 16, t["muted"])
+    s.text(x, 246, "an attacker would, and ship the fixes.", "body", 16, t["muted"])
+    s.add("</g>")
+    # pills
+    s.add('<g class="up d5">')
+    px = x
+    for i, label in enumerate(["Cybersecurity Intern", "B.Tech CSE '27", "India"]):
+        w = tw("mono", label, 12.5) + (40 if i == 0 else 26)
+        s.add(f'<rect x="{px}" y="268" width="{w:.0f}" height="30" rx="15" fill="{t["page"]}" '
+              f'stroke="{t["border"]}"/>')
+        tx = px + 13
+        if i == 0:
+            s.add(f'<circle class="pulse" cx="{px + 17}" cy="283" r="4" fill="{t["accent"]}"/>')
+            tx = px + 29
+        s.text(tx, 287, label, "mono", 12.5, t["soft"])
+        px += w + 10
+    s.add("</g>")
+    s.save("hero", "Arman Ahemad Khan — Full-Stack Developer and Ethical Hacker")
 
 
-# ── OPERATOR ID CARD ──────────────────────────────────────────────────────
-def build_idcard():
-    s = Svg(490, 300)
-    s.style(".shim{animation:sh 3s linear infinite}"
-            "@keyframes sh{0%{transform:translateX(-200px)}100%{transform:translateX(560px)}}"
-            ".stamp{animation:st 6s infinite}"
-            "@keyframes st{0%,8%{opacity:0;transform:scale(1.6)}12%,100%{opacity:1;transform:scale(1)}}"
-            ".pulse{animation:pu 1.4s ease-in-out infinite}@keyframes pu{50%{opacity:.25}}")
-    s.add(f'<defs><linearGradient id="sh" x1="0" y1="0" x2="1" y2="0">'
-          f'<stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".12"/>'
-          f'<stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
-          f'<linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{CYAN}"/>'
-          f'<stop offset="1" stop-color="{MAGENTA}"/></linearGradient></defs>')
-    s.add(f'<rect x="2" y="2" width="486" height="296" rx="14" fill="{PANEL}" stroke="url(#edge)" stroke-width="2.5"/>')
-    s.add(f'<rect x="2" y="2" width="486" height="44" rx="14" fill="{MAGENTA}"/>'
-          f'<rect x="2" y="30" width="486" height="16" fill="{MAGENTA}"/>')
-    s.text(20, 31, "OPERATOR ID", "orb", 18, BG)
-    s.text(330, 30, "#0x7E3A-27", "pix", 10, BG)
-    # avatar block — pixel skull-free glyph: a terminal prompt icon
-    s.add(f'<rect x="22" y="66" width="110" height="128" rx="8" fill="{BG}" stroke="{CYAN}" stroke-width="2"/>')
-    s.text(40, 142, ">_", "pix", 34, CYAN)
-    s.add(f'<circle cx="118" cy="80" r="5" fill="{LIME}" class="pulse"/>')
-    fields = [("NAME", "Arman Ahemad Khan", WHITE), ("HANDLE", "armanxploits", YELLOW),
-              ("ROLE", "Dev // Sec Intern", CYAN), ("BASE", "Silicon IT, BBSR", WHITE),
-              ("CLASS", "B.Tech CSE '27", WHITE)]
-    y = 70
-    for k, v, col in fields:
-        s.text(150, y, k, "pix", 8, DIM)
-        s.text(150, y + 18, v, "raj", 19, col)
-        y += 31
-    # barcode
-    x = 22
-    import random
-    rnd = random.Random(27)
-    while x < 300:
-        w = rnd.choice([2, 2, 3, 4, 6])
-        s.add(f'<rect x="{x}" y="232" width="{w}" height="44" fill="{WHITE}" opacity=".85"/>')
-        x += w + rnd.choice([2, 3, 4])
-    s.text(22, 290, "ACCESS LEVEL :: ROOT", "pix", 8, DIM)
-    # stamp
-    s.add(f'<g class="stamp" style="transform-origin:400px 252px"><g transform="rotate(-12 400 252)">'
-          f'<rect x="326" y="226" width="148" height="52" rx="6" fill="none" stroke="{LIME}" stroke-width="3"/>')
-    s.text(338, 260, "GRANTED", "orb", 22, LIME)
-    s.add('</g></g>')
-    s.add('<rect class="shim" x="0" y="0" width="120" height="300" fill="url(#sh)"/>')
-    save("idcard.svg", s, "Operator ID card for Arman Ahemad Khan")
+# ── SECTION HEADER ───────────────────────────────────────────────────────
+def build_header(theme, name, num, title):
+    s = Svg(1000, 58, theme)
+    t = s.t
+    s.style(".draw{stroke-dasharray:1000;animation:dw 1.6s cubic-bezier(.2,.7,.2,1) both .2s}"
+            "@keyframes dw{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}"
+            ".dot{animation:mv 9s ease-in-out infinite alternate}"
+            "@keyframes mv{from{transform:translateX(0)}to{transform:translateX(var(--d))}}")
+    s.text(2, 36, num, "monom", 14, t["accent"])
+    nx = 2 + tw("monom", num, 14) + 12
+    s.text(nx, 38, title, "head", 26, t["text"], 'letter-spacing="-.4"')
+    lx = nx + tw("head", title, 26, -0.4) + 20
+    s.add(f'<line class="draw" x1="{lx:.0f}" y1="29" x2="996" y2="29" stroke="{t["border"]}" stroke-width="1.5"/>')
+    s.add(f'<circle class="dot" style="--d:{996 - lx:.0f}px" cx="{lx:.0f}" cy="29" r="3" fill="{t["accent"]}"/>')
+    s.save(name, title)
 
 
-# ── SYSTEM MONITOR ────────────────────────────────────────────────────────
-def build_monitor():
-    s = Svg(490, 300)
-    bars = [("BUILD", CYAN, 92), ("BREAK", MAGENTA, 84), ("HARDEN", LIME, 78),
-            ("DEPLOY", YELLOW, 88), ("CAFFEINE", VIOLET, 100)]
-    css = ".eq{animation:eq 1.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:left}"
-    css += "@keyframes eq{0%{transform:scaleX(.55)}100%{transform:scaleX(1)}}"
-    css += "".join(f".d{i}{{animation-delay:-{i * 0.37:.2f}s}}" for i in range(len(bars)))
-    css += ".pulse{animation:pu 1.4s ease-in-out infinite}@keyframes pu{50%{opacity:.25}}"
-    css += ".wave{animation:wv 2.4s linear infinite}@keyframes wv{0%{transform:translateX(0)}100%{transform:translateX(-120px)}}"
-    s.style(css)
-    s.add(f'<rect x="2" y="2" width="486" height="296" rx="14" fill="{PANEL}" stroke="{CYAN}" stroke-width="2.5"/>')
-    s.text(20, 34, "SYS::MONITOR", "orb", 18, CYAN)
-    s.add(f'<circle cx="430" cy="27" r="6" fill="{LIME}" class="pulse"/>')
-    s.text(442, 32, "LIVE", "pix", 9, LIME)
-    s.add(f'<line x1="20" y1="48" x2="470" y2="48" stroke="{CYAN}" stroke-opacity=".3"/>')
-    y = 78
-    for i, (label, col, pct) in enumerate(bars):
-        s.text(20, y + 10, label, "pix", 10, col)
-        s.add(f'<rect x="130" y="{y - 2}" width="300" height="14" rx="3" fill="{BG}" stroke="{col}" stroke-opacity=".35"/>')
-        s.add(f'<rect class="eq d{i}" x="132" y="{y}" width="{296 * pct / 100:.0f}" height="10" rx="2" fill="{col}"/>')
-        s.text(440, y + 10, f"{pct}%", "mono", 13, WHITE)
-        y += 32
-    # heartbeat line
-    pts = []
-    for k in range(0, 8):
-        bx = 20 + k * 120
-        pts.append(f"L{bx},262 L{bx + 40},262 L{bx + 52},240 L{bx + 62},280 L{bx + 72},252 L{bx + 82},262 L{bx + 120},262")
-    s.add('<clipPath id="hb"><rect x="20" y="236" width="450" height="50"/></clipPath>')
-    s.add(f'<g clip-path="url(#hb)"><path class="wave" d="M20,262 {" ".join(pts)}" fill="none" '
-          f'stroke="{MAGENTA}" stroke-width="2.2"/></g>')
-    save("monitor.svg", s, "System monitor: build, break, harden, deploy")
-
-
-# ── SECTION HEADERS ───────────────────────────────────────────────────────
-def build_header(fname, code, title, color, accent):
-    s = Svg(1000, 76)
-    s.style(".run{animation:rn 3.5s linear infinite}"
-            "@keyframes rn{0%{transform:translateX(-200px)}100%{transform:translateX(1000px)}}"
-            ".flick{animation:fl 5s infinite}"
-            "@keyframes fl{0%,100%,60%{opacity:1}61%{opacity:.3}62%{opacity:1}64%{opacity:.5}65%{opacity:1}}")
-    s.add(f'<defs><linearGradient id="ln" x1="0" y1="0" x2="1" y2="0">'
-          f'<stop offset="0" stop-color="{accent}" stop-opacity="0"/>'
-          f'<stop offset=".5" stop-color="{accent}"/><stop offset="1" stop-color="{accent}" stop-opacity="0"/>'
-          f'</linearGradient></defs>')
-    tag_w = text_width("pix", code, 13) + 24
-    s.add(f'<path d="M4,14 H{tag_w + 4} L{tag_w + 18},28 L{tag_w + 4},42 H4 Z" fill="{color}"/>')
-    s.text(16, 35, code, "pix", 13, BG)
-    s.add('<g class="flick">')
-    s.text(round(tag_w + 34, 1), 41, title, "orb", 28, WHITE)
-    s.add('</g>')
-    tx = tag_w + 34 + text_width("orb", title, 28) + 16
-    s.text(round(tx, 1), 41, "_", "orb", 28, color)
-    s.add(f'<line x1="4" y1="64" x2="996" y2="64" stroke="{color}" stroke-opacity=".35" stroke-width="2"/>')
-    s.add(f'<rect class="run" x="0" y="62" width="200" height="4" fill="url(#ln)"/>')
-    save(fname, s, title)
-
-
-# ── PROJECT CARDS ─────────────────────────────────────────────────────────
+# ── PROJECT CARD ─────────────────────────────────────────────────────────
 PROJECTS = [
-    ("netscope", "PRJ-01", "NETSCOPE", "Network Packet Analyzer",
+    ("netscope", "NetScope", "Security · Network analysis", "teal",
      "Real-time traffic analysis with a SOC-style browser dashboard, protocol breakdowns, anomaly alerts and per-host risk scores.",
-     ["PYTHON", "SCAPY", "WEBSOCKET", "RENDER"], CYAN),
-    ("fsociety", "PRJ-02", "FSOCIETY-WEB", "Security Portfolio",
-     "Cinematic dark portfolio with a terminal boot sequence, interactive roadmap, in-browser utilities and CTF progress.",
-     ["VANILLA JS", "HTML", "CSS", "VERCEL"], MAGENTA),
-    ("industrust", "PRJ-03", "INDUSTRUST BANK", "Banking System",
+     "Python · Scapy · WebSockets"),
+    ("fsociety", "fsociety-web", "Security · Portfolio", "pink",
+     "A cinematic security portfolio with an interactive learning roadmap, in-browser utilities, field notes and CTF progress.",
+     "HTML · CSS · JavaScript"),
+    ("industrust", "IndusTrust Bank", "Full-stack · Fintech", "green",
      "Spring Boot web bank with a double-entry ledger, row-locked atomic transfers, BigDecimal money and hashed PINs.",
-     ["SPRING BOOT", "SECURITY", "POSTGRES", "DOCKER"], LIME),
-    ("sms", "PRJ-04", "STUDENT MGMT SYS", "Records Platform",
-     "Legacy Swing + Oracle app rebuilt as a cloud REST service with analytics, CSV export and CI on every push.",
-     ["SPRING BOOT", "NEON PG", "ACTIONS", "RENDER"], YELLOW),
-    ("snapurl", "PRJ-05", "SNAPURL", "Serverless URL Shortener",
-     "Base62 short links, custom aliases and self-expiring TTL links on Vercel functions with Turso edge SQLite.",
-     ["TYPESCRIPT", "EXPRESS", "TURSO", "VERCEL"], VIOLET),
-    ("cineroulette", "PRJ-06", "CINEROULETTE", "Movie Picker",
-     "Pick a mood, spin the reel, get one explained pick. Weighted scoring normalized per language and region.",
-     ["NEXT.JS", "NESTJS", "PRISMA", "REDIS"], MAGENTA),
-    ("gitatlas", "PRJ-07", "GITATLAS", "Git Command Atlas",
-     "381 Git commands in plain English, 17 recovery playbooks, a two-question wizard and warnings on risky commands.",
-     ["VANILLA JS", "HTML", "CSS", "VERCEL"], CYAN),
-    ("grabmedia", "PRJ-08", "GRABMEDIA", "Media Downloader",
-     "Save public Instagram and YouTube media up to 2160p or audio-only, behind a hardened rate-limited Express proxy.",
-     ["NODE.JS", "EXPRESS", "HELMET", "RENDER"], YELLOW),
-    ("disease", "PRJ-09", "DISEASE PREDICT", "Explainable ML",
+     "Spring Boot · PostgreSQL · Docker"),
+    ("sms", "Student Management", "Full-stack · Education", "orange",
+     "A legacy Swing + Oracle desktop app rebuilt as a cloud REST service with analytics, CSV export and CI on every push.",
+     "Spring Boot · Neon · GitHub Actions"),
+    ("snapurl", "SnapURL", "Serverless · Utility", "blue",
+     "Base62 short links, custom aliases and self-expiring links, running on Vercel functions with Turso edge SQLite.",
+     "TypeScript · Express · Turso"),
+    ("cineroulette", "CineRoulette", "Full-stack · Discovery", "purple",
+     "Pick a mood, spin, get one explained movie pick. Weighted scoring normalized per language and region.",
+     "Next.js · NestJS · Prisma · Redis"),
+    ("gitatlas", "GitAtlas", "Developer tool", "orange",
+     "381 Git commands explained in plain English, 17 recovery playbooks, a guided wizard and warnings on risky commands.",
+     "HTML · CSS · JavaScript"),
+    ("grabmedia", "GrabMedia", "Full-stack · Media", "blue",
+     "Save public Instagram and YouTube media up to 2160p or audio-only, behind a hardened, rate-limited Express proxy.",
+     "Node.js · Express · Helmet"),
+    ("disease", "Disease Prediction", "Machine learning", "green",
      "Predicts 41 diseases from 132 symptoms with a tree ensemble, SHAP explanations and downloadable PDF reports.",
-     ["FASTAPI", "SKLEARN", "SHAP", "DOCKER"], LIME),
-    ("siteshield", "PRJ-10", "SITESHIELD", "Security Posture SaaS",
-     "Grades a site's TLS, headers, cookies and DNS hygiene A to F, re-scans on schedule and alerts on regressions.",
-     ["REACT", "FASTAPI", "CELERY", "POSTGRES"], VIOLET),
+     "FastAPI · scikit-learn · SHAP"),
+    ("siteshield", "SiteShield", "Security · SaaS", "purple",
+     "Grades a website's TLS, headers, cookies and DNS hygiene from A to F, re-scans on a schedule and alerts on regressions.",
+     "React · FastAPI · Celery"),
 ]
 BUILDING = {"siteshield"}
 
 
-def build_card(slug, pid, title, sub, desc, stack, col):
-    s = Svg(480, 250)
-    building = slug in BUILDING
-    s.style(".trace{stroke-dasharray:120 1300;animation:tr 4s linear infinite}"
-            "@keyframes tr{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-1420}}"
-            ".pulse{animation:pu 1.2s ease-in-out infinite}@keyframes pu{50%{opacity:.2}}"
-            ".arrow{animation:ar 1.4s ease-in-out infinite}@keyframes ar{50%{transform:translateX(6px)}}")
-    s.add(f'<defs><linearGradient id="bgc" x1="0" y1="0" x2="1" y2="1">'
-          f'<stop offset="0" stop-color="{PANEL}"/><stop offset="1" stop-color="{BG}"/></linearGradient></defs>')
-    edge = "M14,2 H466 L478,14 V236 L466,248 H14 L2,236 V14 Z"
-    s.add(f'<path d="{edge}" fill="url(#bgc)" stroke="{col}" stroke-opacity=".45" stroke-width="2"/>')
-    s.add(f'<path class="trace" d="{edge}" fill="none" stroke="{col}" stroke-width="3"/>')
-    s.text(22, 34, pid, "pix", 10, col)
-    status = "BUILDING" if building else "ONLINE"
-    scol = YELLOW if building else LIME
-    sw = text_width("pix", status, 9)
-    s.add(f'<circle cx="{456 - sw - 12}" cy="30" r="5" fill="{scol}" class="pulse"/>')
-    s.text(round(456 - sw, 1), 34, status, "pix", 9, scol)
-    s.text(22, 72, title, "orb", 25, WHITE)
-    s.text(22, 96, sub.upper(), "raj", 17, col, 'letter-spacing="1.5"')
-    y = 124
-    for line in wrap(desc, "mono", 14.5, 436)[:3]:
-        s.text(22, y, line, "mono", 14.5, "#cfc8ea")
-        y += 20
-    x = 22
-    for chip in stack:
-        w = text_width("pix", chip, 8) + 16
-        s.add(f'<rect x="{x}" y="190" width="{w:.0f}" height="20" rx="3" fill="none" stroke="{col}" stroke-opacity=".6"/>')
-        s.text(round(x + 8, 1), 204, chip, "pix", 8, col)
-        x += w + 8
-    cta = "[ SOURCE ]" if building else "[ LAUNCH ]"
-    s.text(22, 236, cta, "pix", 9, WHITE)
-    s.add(f'<g class="arrow"><path d="M{36 + text_width("pix", cta, 9):.0f},230 h14 m-5,-5 l5,5 l-5,5" '
-          f'fill="none" stroke="{col}" stroke-width="2.5"/></g>')
-    save(f"card-{slug}.svg", s, f"{title} — {sub}")
-
-
-# ── LOADOUT ──────────────────────────────────────────────────────────────
-def build_loadout():
-    groups = [
-        ("// BUILD", CYAN, ["JAVA", "SPRING BOOT", "PYTHON", "FASTAPI", "TYPESCRIPT", "JAVASCRIPT",
-                           "NODE.JS", "EXPRESS", "NESTJS", "NEXT.JS", "REACT", "TAILWIND", "PHP"]),
-        ("// DATA + SHIP", LIME, ["POSTGRESQL", "MYSQL", "MONGODB", "REDIS", "PRISMA", "DOCKER",
-                                  "GH ACTIONS", "VERCEL", "RENDER", "GIT", "LINUX"]),
-        ("// SECURITY LAB", MAGENTA, ["KALI LINUX", "BURP SUITE", "NMAP", "WIRESHARK", "METASPLOIT",
-                                      "HASHCAT", "VOLATILITY3", "GHIDRA", "OWASP TOP 10"]),
-    ]
-    s = Svg(1000, 0)
-    s.style(".chip{animation:cg 4.5s ease-in-out infinite}"
-            "@keyframes cg{0%,100%{fill-opacity:0}50%{fill-opacity:.22}}")
-    y = 44
-    n = 0
-    for label, col, chips in groups:
-        s.text(24, y, label, "pix", 11, col)
-        y += 16
-        x = 24
-        for chip in chips:
-            w = text_width("raj", chip, 17) + 26
-            if x + w > 976:
-                x = 24
-                y += 38
-            s.add(f'<rect class="chip" style="animation-delay:-{(n * 0.31) % 4.5:.2f}s" x="{x:.0f}" y="{y}" '
-                  f'width="{w:.0f}" height="28" rx="4" fill="{col}" stroke="{col}" stroke-width="1.6"/>')
-            s.text(round(x + 13, 1), y + 20, chip, "raj", 17, WHITE)
-            x += w + 10
-            n += 1
-        y += 62
-    s.h = y - 20
-    s.parts.insert(0, f'<rect x="2" y="2" width="996" height="{s.h - 4}" rx="14" fill="{PANEL}" '
-                      f'stroke="{VIOLET}" stroke-opacity=".6" stroke-width="2"/>')
-    save("loadout.svg", s, "Toolkit: build, data and ship, security lab")
+def build_card(theme, slug, title, category, hue, desc, stack):
+    s = Svg(480, 214, theme)
+    t = s.t
+    col = HUES[hue][0 if theme == "dark" else 1]
+    live = slug not in BUILDING
+    s.style(PULSE +
+            ".sheen{animation:sn 6s ease-in-out infinite}"
+            "@keyframes sn{0%{transform:translateX(-160px)}60%,100%{transform:translateX(520px)}}"
+            ".go{animation:go 2.4s ease-in-out infinite}@keyframes go{50%{transform:translate(2px,-2px)}}")
+    s.add(f'<defs><clipPath id="c"><rect x="1" y="1" width="478" height="212" rx="12"/></clipPath>'
+          f'<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+          f'<stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>'
+          f'</linearGradient><mask id="m"><rect class="sheen" x="0" y="0" width="140" height="4" fill="url(#sh)"/></mask></defs>')
+    s.add(f'<g clip-path="url(#c)"><rect width="480" height="214" fill="{t["panel"]}"/>'
+          f'<rect width="480" height="3" fill="{col}" opacity=".55"/>'
+          f'<rect width="480" height="3" fill="{col}" mask="url(#m)"/></g>')
+    s.add(f'<rect x="1" y="1" width="478" height="212" rx="12" fill="none" stroke="{t["border"]}"/>')
+    # header row
+    s.add(f'<rect x="24" y="26" width="10" height="10" rx="2.5" fill="{col}"/>')
+    s.text(42, 36, category.upper(), "monom", 11, t["muted"], 'letter-spacing=".8"')
+    status = "Live" if live else "In progress"
+    stc = t["accent"] if live else HUES["orange"][0 if theme == "dark" else 1]
+    sw = tw("monom", status, 12)
+    s.add(f'<circle class="pulse" cx="{448 - sw - 10:.0f}" cy="32" r="4" fill="{stc}"/>')
+    s.text(456 - sw, 36, status, "monom", 12, stc)
+    s.text(24, 74, title, "head", 24, t["text"], 'letter-spacing="-.3"')
+    y = 104
+    for line in wrap(desc, "body", 14, 432)[:3]:
+        s.text(24, y, line, "body", 14, t["muted"])
+        y += 21
+    s.add(f'<line x1="24" y1="170" x2="456" y2="170" stroke="{t["border"]}"/>')
+    s.text(24, 194, stack, "mono", 12, t["soft"])
+    cta = "Visit" if live else "Source"
+    cw = tw("bodym", cta, 13)
+    s.text(442 - cw, 194, cta, "bodym", 13, col)
+    s.add(f'<g class="go">{arrow(446, 184, col)}</g>')
+    s.save(f"card-{slug}", f"{title} — {category}")
 
 
 # ── FOOTER ───────────────────────────────────────────────────────────────
-def build_footer():
-    s = Svg(1000, 150)
-    s.style(".blink{animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
-            ".ga{animation:ga 2.6s infinite steps(1)}"
-            "@keyframes ga{0%,80%,100%{transform:translate(0,0)}82%{transform:translate(-8px,1px)}"
-            "84%{transform:translate(6px,-2px)}86%{transform:translate(0,0)}}")
-    s.add(f'<defs><linearGradient id="ft" x1="0" y1="0" x2="1" y2="0">'
-          f'<stop offset="0" stop-color="{MAGENTA}"/><stop offset=".5" stop-color="{VIOLET}"/>'
-          f'<stop offset="1" stop-color="{CYAN}"/></linearGradient></defs>')
-    s.add('<rect width="1000" height="150" rx="14" fill="url(#ft)"/>')
-    s.add(f'<rect x="4" y="4" width="992" height="142" rx="11" fill="{BG}" opacity=".88"/>')
-    msg = "SESSION SAVED. SEE YOU IN THE LOGS."
-    mx = (1000 - text_width("orb", msg, 26)) / 2
-    s.text(round(mx, 1), 72, msg, "orb", 26, MAGENTA, 'opacity=".6"', "ga")
-    s.text(round(mx, 1), 72, msg, "orb", 26, WHITE)
-    sub = "root@armanxploits:~# exit"
-    sx = (1000 - text_width("mono", sub, 18) - 14) / 2
-    s.text(round(sx, 1), 110, sub, "mono", 18, LIME)
-    s.add(f'<rect x="{sx + text_width("mono", sub, 18) + 6:.0f}" y="96" width="10" height="17" fill="{LIME}" class="blink"/>')
-    save("footer.svg", s, "Session saved. See you in the logs.")
+def build_footer(theme):
+    s = Svg(1000, 120, theme)
+    t = s.t
+    s.style(FADE + ".cur{animation:bl 1.1s steps(1) infinite}@keyframes bl{50%{opacity:0}}"
+            ".run{animation:rn 7s ease-in-out infinite alternate}"
+            "@keyframes rn{from{transform:translateX(-300px)}to{transform:translateX(300px)}}")
+    s.add(f'<defs><linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="{t["accent"]}" stop-opacity="0"/>'
+          f'<stop offset=".5" stop-color="{t["accent"]}"/><stop offset="1" stop-color="{t["accent"]}" stop-opacity="0"/>'
+          f'</linearGradient></defs>')
+    s.add(f'<line x1="200" y1="20" x2="800" y2="20" stroke="{t["border"]}"/>')
+    s.add(f'<g class="run"><rect x="440" y="19" width="120" height="2" fill="url(#ln)"/></g>')
+    q = "Build it. Break it. Harden it. Ship it."
+    s.add('<g class="up">')
+    s.text((1000 - tw("semi", q, 22)) / 2, 66, q, "semi", 22, t["text"])
+    p = "arman@kali:~$ logout"
+    px = (1000 - tw("mono", p, 14) - 12) / 2
+    s.text(px, 98, "arman@kali", "mono", 14, t["accent"])
+    s.text(px + tw("mono", "arman@kali", 14), 98, ":~$ logout", "mono", 14, t["muted"])
+    s.add(f'<rect class="cur" x="{px + tw("mono", p, 14) + 6:.0f}" y="87" width="7" height="14" fill="{t["accent"]}"/>')
+    s.add("</g>")
+    s.save("footer", "Build it. Break it. Harden it. Ship it.")
+
+
+HEADERS = [
+    ("h-about", "01", "About"),
+    ("h-projects", "02", "Live projects"),
+    ("h-stack", "03", "Tech stack"),
+    ("h-activity", "04", "Activity"),
+    ("h-connect", "05", "Connect"),
+]
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--fonts", required=True)
     load_fonts(ap.parse_args().fonts)
-    build_hero()
-    build_idcard()
-    build_monitor()
-    headers = [
-        ("h-about.svg", "0x01", "OPERATOR PROFILE", CYAN, MAGENTA),
-        ("h-projects.svg", "0x02", "LIVE DEPLOYMENTS", MAGENTA, CYAN),
-        ("h-loadout.svg", "0x03", "LOADOUT", LIME, YELLOW),
-        ("h-pipeline.svg", "0x04", "THE PIPELINE", YELLOW, MAGENTA),
-        ("h-stats.svg", "0x05", "TELEMETRY", VIOLET, LIME),
-        ("h-connect.svg", "0x06", "OPEN A CHANNEL", CYAN, YELLOW),
-    ]
-    for h in headers:
-        build_header(*h)
-    for p in PROJECTS:
-        build_card(*p)
-    build_loadout()
-    build_footer()
+    for theme in THEMES:
+        build_hero(theme)
+        for h in HEADERS:
+            build_header(theme, *h)
+        for p in PROJECTS:
+            build_card(theme, *p)
+        build_footer(theme)
 
 
 if __name__ == "__main__":
