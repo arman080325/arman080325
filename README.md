@@ -5,16 +5,16 @@
 
 <a href="https://www.arman-portfolio.online/">
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/hero-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/hero-light.svg" width="100%" alt="Arman Ahemad Khan — Full-Stack Developer and Ethical Hacker">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/hero-dark.svg">
+  <img src="assets/ui/hero-light.svg" width="100%" alt="Arman Ahemad Khan — Full-Stack Developer and Ethical Hacker">
 </picture>
 </a>
 
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-about-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-about-light.svg" width="100%" alt="01 About">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/h-about-dark.svg">
+  <img src="assets/ui/h-about-light.svg" width="100%" alt="01 About">
 </picture>
 
 I'm a **B.Tech CSE student ('23–'27)** at Silicon Institute of Technology, Bhubaneswar, currently working as a **Cybersecurity Intern** focused on penetration testing and web application security.
@@ -27,69 +27,69 @@ I work on both sides of the stack. I design and ship full-stack products with **
 - 🌐 &nbsp;**Portfolio:** [arman-portfolio.online](https://www.arman-portfolio.online/) &nbsp;·&nbsp; **Security portfolio:** [fsociety-web](https://fsociety-web.vercel.app)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-projects-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-projects-light.svg" width="100%" alt="02 Live projects">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/h-projects-dark.svg">
+  <img src="assets/ui/h-projects-light.svg" width="100%" alt="02 Live projects">
 </picture>
 
 <p align="center">
 <a href="https://network-packet-analyzer-tan.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-netscope-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-netscope-light.svg" width="49%" alt="NetScope">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-netscope-dark.svg">
+  <img src="assets/ui/card-netscope-light.svg" width="49%" alt="NetScope">
 </picture></a>
 <a href="https://fsociety-web.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-fsociety-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-fsociety-light.svg" width="49%" alt="fsociety-web">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-fsociety-dark.svg">
+  <img src="assets/ui/card-fsociety-light.svg" width="49%" alt="fsociety-web">
 </picture></a>
 <br><sub>source: <a href="https://github.com/arman080325/Network-packet-analyzer"><code>Network-packet-analyzer</code></a> &nbsp;·&nbsp; <a href="https://github.com/arman080325/fsociety-web"><code>fsociety-web</code></a></sub>
 </p>
 <p align="center">
 <a href="https://banking-management-system-java.onrender.com"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-industrust-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-industrust-light.svg" width="49%" alt="IndusTrust Bank">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-industrust-dark.svg">
+  <img src="assets/ui/card-industrust-light.svg" width="49%" alt="IndusTrust Bank">
 </picture></a>
 <a href="https://student-management-system-java-springboot.onrender.com"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-sms-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-sms-light.svg" width="49%" alt="Student Management System">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-sms-dark.svg">
+  <img src="assets/ui/card-sms-light.svg" width="49%" alt="Student Management System">
 </picture></a>
 <br><sub>source: <a href="https://github.com/arman080325/Banking-Management-System-Java"><code>Banking-Management-System-Java</code></a> &nbsp;·&nbsp; <a href="https://github.com/arman080325/Student-Management-System-Java-Springboot"><code>Student-Management-System-Java-Springboot</code></a></sub>
 </p>
 <p align="center">
 <a href="https://snapurl-project.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-snapurl-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-snapurl-light.svg" width="49%" alt="SnapURL">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-snapurl-dark.svg">
+  <img src="assets/ui/card-snapurl-light.svg" width="49%" alt="SnapURL">
 </picture></a>
 <a href="https://cineroulette-web-nu.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-cineroulette-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-cineroulette-light.svg" width="49%" alt="CineRoulette">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-cineroulette-dark.svg">
+  <img src="assets/ui/card-cineroulette-light.svg" width="49%" alt="CineRoulette">
 </picture></a>
 <br><sub>source: <a href="https://github.com/arman080325/SnapURL-Project"><code>SnapURL-Project</code></a> &nbsp;·&nbsp; <a href="https://github.com/arman080325/cineroulette"><code>cineroulette</code></a></sub>
 </p>
 <p align="center">
 <a href="https://git-atlas-project.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-gitatlas-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-gitatlas-light.svg" width="49%" alt="GitAtlas">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-gitatlas-dark.svg">
+  <img src="assets/ui/card-gitatlas-light.svg" width="49%" alt="GitAtlas">
 </picture></a>
 <a href="https://arman080325.github.io/GrabMedia-Project/"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-grabmedia-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-grabmedia-light.svg" width="49%" alt="GrabMedia">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-grabmedia-dark.svg">
+  <img src="assets/ui/card-grabmedia-light.svg" width="49%" alt="GrabMedia">
 </picture></a>
 <br><sub>source: <a href="https://github.com/arman080325/GitAtlas-Project"><code>GitAtlas-Project</code></a> &nbsp;·&nbsp; <a href="https://github.com/arman080325/GrabMedia-Project"><code>GrabMedia-Project</code></a></sub>
 </p>
 <p align="center">
 <a href="https://disease-prediction-updated.vercel.app"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-disease-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-disease-light.svg" width="49%" alt="Disease Prediction">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-disease-dark.svg">
+  <img src="assets/ui/card-disease-light.svg" width="49%" alt="Disease Prediction">
 </picture></a>
 <a href="https://github.com/arman080325/SiteShield-Web"><picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-siteshield-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/card-siteshield-light.svg" width="49%" alt="SiteShield (in progress)">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/card-siteshield-dark.svg">
+  <img src="assets/ui/card-siteshield-light.svg" width="49%" alt="SiteShield (in progress)">
 </picture></a>
 <br><sub>source: <a href="https://github.com/arman080325/Disease-Prediction-Updated"><code>Disease-Prediction-Updated</code></a> &nbsp;·&nbsp; <a href="https://github.com/arman080325/SiteShield-Web"><code>SiteShield-Web</code></a></sub>
 </p>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-stack-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-stack-light.svg" width="100%" alt="03 Tech stack">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/h-stack-dark.svg">
+  <img src="assets/ui/h-stack-light.svg" width="100%" alt="03 Tech stack">
 </picture>
 
 <table>
@@ -129,8 +129,8 @@ I work on both sides of the stack. I design and ship full-stack products with **
 </table>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-activity-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-activity-light.svg" width="100%" alt="04 Activity">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/h-activity-dark.svg">
+  <img src="assets/ui/h-activity-light.svg" width="100%" alt="04 Activity">
 </picture>
 
 <div align="center">
@@ -169,8 +169,8 @@ I work on both sides of the stack. I design and ship full-stack products with **
 </div>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-connect-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/h-connect-light.svg" width="100%" alt="05 Connect">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/h-connect-dark.svg">
+  <img src="assets/ui/h-connect-light.svg" width="100%" alt="05 Connect">
 </picture>
 
 <div align="center">
@@ -182,8 +182,8 @@ I work on both sides of the stack. I design and ship full-stack products with **
 <br><br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/footer-dark.svg">
-  <img src="https://raw.githubusercontent.com/arman080325/arman080325/main/assets/ui/footer-light.svg" width="100%" alt="Build it. Break it. Harden it. Ship it.">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ui/footer-dark.svg">
+  <img src="assets/ui/footer-light.svg" width="100%" alt="Build it. Break it. Harden it. Ship it.">
 </picture>
 
 <img src="https://komarev.com/ghpvc/?username=arman080325&style=flat&color=3fb950&label=profile+views"/>
