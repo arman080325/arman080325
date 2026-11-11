@@ -12,8 +12,9 @@ Design notes
 
 Usage:
     pip install fonttools brotli
-    npm pack @fontsource/sora @fontsource/inter @fontsource/jetbrains-mono  # then extract
-    python3 scripts/build_bento_assets.py --fonts <folder with the .woff files>
+    python3 scripts/build_bento_assets.py            # fonts are read from assets/fonts/
+
+The live stats tiles are drawn by scripts/build_bento_stats.py in the workflow.
 """
 import argparse
 import base64
@@ -804,17 +805,70 @@ def build_cta():
     s.save("cta.svg", "Have an idea worth building, and worth securing? Visit arman-portfolio.online")
 
 
+# ── HOW I WORK: four principle tiles ─────────────────────────────────────
+def _icon_build(s, x, y, a):
+    s.path(f"M{x - 10},{y - 8} L{x - 20},{y} L{x - 10},{y + 8} M{x + 10},{y - 8} L{x + 20},{y} L{x + 10},{y + 8} "
+           f"M{x + 4},{y - 13} L{x - 4},{y + 13}", a, 3)
+
+
+def _icon_break(s, x, y, a):
+    s.circle(x - 3, y - 3, 11, "none", a, 3)
+    s.path(f"M{x + 5},{y + 5} L{x + 15},{y + 15}", a, 3.5)
+
+
+def _icon_study(s, x, y, a):
+    s.path(f"M{x - 18},{y - 10} L{x},{y - 17} L{x + 18},{y - 10} L{x},{y - 3} Z M{x - 11},{y - 7} V{y + 6} "
+           f"C{x - 5},{y + 12} {x + 5},{y + 12} {x + 11},{y + 6} V{y - 7}", a, 2.6)
+
+
+def _icon_rules(s, x, y, a):
+    s.path(f"M{x},{y - 17} L{x + 15},{y - 10} V{y + 1} C{x + 15},{y + 10} {x + 8},{y + 15} {x},{y + 18} "
+           f"C{x - 8},{y + 15} {x - 15},{y + 10} {x - 15},{y + 1} V{y - 10} Z", a, 2.6)
+    s.path(f"M{x - 6},{y + 1} L{x - 1},{y + 6} L{x + 7},{y - 3}", a, 2.6)
+
+
+PRINCIPLES = [
+    ("build", "Build", "violet", _icon_build,
+     ["Real auth, real data,", "CI and a public URL", "for everything I ship."]),
+    ("break", "Break", "pink", _icon_break,
+     ["Web AppSec practice on", "PortSwigger, TryHackMe", "and HackTheBox."]),
+    ("study", "Study", "cyan", _icon_study,
+     ["Memory forensics with", "Volatility3, plus breach", "case studies."]),
+    ("rules", "Rules", "green", _icon_rules,
+     ["Written authorization,", "responsible disclosure,", "scope respected."]),
+]
+
+
+def build_principle(slug, title, a, icon, lines):
+    s = Svg(240, 230)
+    s.style(RISE + ".bob{animation:bob 4s ease-in-out infinite}@keyframes bob{50%{transform:translateY(-4px)}}")
+    tile(s, a)
+    s.add('<g class="bob">')
+    s.rect(24, 24, 56, 56, 16, "tile2", "border")
+    icon(s, 52, 52, a)
+    s.add("</g>")
+    s.text(24, 122, title, "disp", 22, "fg", ls=-.4)
+    s.add('<g class="rise" style="animation-delay:.15s">')
+    for i, line in enumerate(lines):
+        s.text(24, 152 + i * 21, line, "body", 13.5, "muted")
+    s.add("</g>")
+    s.save(f"work-{slug}.svg", f"{title}: {' '.join(lines)}")
+
+
 HEADERS = [
     ("work", "Selected work", "Things I've shipped", "violet"),
     ("journey", "Journey", "How I got here", "pink"),
+    ("how", "Principles", "How I work", "amber"),
     ("activity", "Activity", "Always committing", "green"),
 ]
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--fonts", required=True)
+    ap.add_argument("--fonts", default=os.path.join(os.path.dirname(__file__), "..", "assets", "fonts"))
     load_fonts(ap.parse_args().fonts)
+    for p in PRINCIPLES:
+        build_principle(*p)
     build_hero()
     build_now()
     build_modes()
