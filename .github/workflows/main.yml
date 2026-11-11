@@ -1,4 +1,4 @@
-name: Generate Snake
+name: Generate contribution graphs
 
 on:
   schedule:
@@ -15,18 +15,31 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # The "breaker" (red snake) eats the "builder's" commits (blueprint-blue dots).
       - name: Generate snake animation
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/blueprint-snake.svg?color_snake=#ff6b5e&color_dots=#1a3f80,#2a5aa6,#5d8fd8,#a9c8f5,#eaf2ff
 
-      - name: Deploy to output branch
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Draw field measurements (live stats)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install --quiet fonttools brotli
+          python scripts/build_blueprint_stats.py --user "${{ github.repository_owner }}" --out dist
+
+      # A dedicated branch, so no other workflow can overwrite these images.
+      - name: Deploy to output-blueprint branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          target_branch: output
+          target_branch: output-blueprint
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
