@@ -107,8 +107,10 @@ BASE_CSS = (
     ".grow{transform-box:fill-box;transform-origin:left;animation:grow 1.3s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}"
     "@keyframes grow{from{transform:scaleX(0)}}"
 )
+# With motion switched off, everything must still be visible in its final state.
 REDUCED = ("@media (prefers-reduced-motion:reduce){*{animation:none!important}"
-           ".fi{opacity:1!important}.a,.b{opacity:0!important}}")
+           ".fi{opacity:1!important}.a,.b{opacity:0!important}.cl{opacity:var(--o,1)!important}"
+           ".dr{stroke-dashoffset:0!important}}")
 
 
 class Svg:
