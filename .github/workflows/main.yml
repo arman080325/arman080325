@@ -1,4 +1,4 @@
-name: Generate Snake
+name: Generate contribution graphs
 
 on:
   schedule:
@@ -20,13 +20,26 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            dist/soc-snake.svg?color_snake=#0ea5e9&color_dots=#e8edf2,#b9ece4,#7fdccf,#3cc7b5,#14a594
+            dist/soc-snake-dark.svg?color_snake=#38bdf8&color_dots=#121b24,#0f3d3a,#14665f,#1f9e8f,#2dd4bf
 
-      - name: Deploy to output branch
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Draw live SOC panels (feed, gauge, telemetry)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install --quiet fonttools brotli
+          python scripts/build_soc_stats.py --user "${{ github.repository_owner }}" --out dist
+
+      # A dedicated branch, so no other workflow can overwrite these images.
+      - name: Deploy to output-soc branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          target_branch: output
+          target_branch: output-soc
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
