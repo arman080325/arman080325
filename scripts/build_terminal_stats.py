@@ -58,7 +58,8 @@ query($login: String!) {
     id
     pullRequests { totalCount }
     issues { totalCount }
-    repositoriesContributedTo(contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) { totalCount }
+    repositoriesContributedTo(includeUserRepositories: true,
+                              contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) { totalCount }
     repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC, first: 100) {
       totalCount
       nodes {
@@ -463,7 +464,7 @@ def build_profile(d, out):
         s.text(306, y, v, "monoh", 13, col)
         s.text(470, y, note, "mono", 10.5, MUTED, anchor="end")
         s.add("</g>")
-    s.text(20, 256, "pull requests and issues opened, repos with commits, issues or PRs", "mono", 10, MUTED)
+    s.text(20, 256, "PRs and issues opened; repos (own or others') with your commits, issues or PRs", "mono", 10, MUTED)
     s.save(os.path.join(out, "term-profile.svg"),
            f"Profile stats: {d['stars']} stars, {d['commits']:,} commits in the past year, {d['prs']} pull requests, "
            f"{d['issues']} issues, contributed to {d['contributed']} repositories.")
