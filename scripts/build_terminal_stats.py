@@ -7,6 +7,10 @@ from the GitHub GraphQL API with the workflow's GITHUB_TOKEN and writes:
     term-recon.svg     `./recon --target=self`: contributions, streaks, repos, stars
     term-langs.svg     `cloc --by-language`: language mix across own repositories
     term-activity.svg  weekly contributions over the last 52 weeks as a line chart
+    term-langs-repo.svg     top languages by number of repositories (donut)
+    term-langs-commit.svg   top languages by commits in the past year (donut)
+    term-profile.svg        stars, commits, pull requests, issues, repos contributed to
+    term-hours.svg          commits by hour of day, in India time (UTC+5:30)
 
 These replace third-party stat cards, which were often rate-limited or offline
 and showed up as broken images.
@@ -51,14 +55,25 @@ WHITE = "#e6f1ff"
 QUERY = """
 query($login: String!) {
   user(login: $login) {
+    id
+    pullRequests { totalCount }
+    issues { totalCount }
+    repositoriesContributedTo(contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) { totalCount }
     repositories(ownerAffiliations: OWNER, isFork: false, privacy: PUBLIC, first: 100) {
       totalCount
       nodes {
+        name
         stargazerCount
+        primaryLanguage { name }
         languages(first: 10, orderBy: {field: SIZE, direction: DESC}) { edges { size node { name } } }
       }
     }
     contributionsCollection {
+      totalCommitContributions
+      commitContributionsByRepository(maxRepositories: 100) {
+        contributions { totalCount }
+        repository { primaryLanguage { name } }
+      }
       contributionCalendar {
         totalContributions
         weeks { contributionDays { date contributionCount } }
@@ -67,6 +82,24 @@ query($login: String!) {
   }
 }
 """
+# Timestamps of the user's own commits on each repository's default branch (for the hour histogram).
+HOURS_QUERY = """
+query($login: String!, $id: ID!) {
+  user(login: $login) {
+    repositories(ownerAffiliations: OWNER, isFork: false, first: 100, orderBy: {field: PUSHED_AT, direction: DESC}) {
+      nodes { defaultBranchRef { target { ... on Commit {
+        history(first: 100, author: {id: $id}) { nodes { authoredDate } }
+      } } } }
+    }
+  }
+}
+"""
+IST = dt.timedelta(hours=5, minutes=30)
+# GitHub's linguist colours, so languages look the way people expect.
+LANG_COLORS = {"JavaScript": "#f1e05a", "TypeScript": "#3178c6", "Java": "#b07219", "Python": "#3572a5",
+               "CSS": "#663399", "HTML": "#e34c26", "C": "#a8b9cc", "C++": "#f34b7d", "PHP": "#4f5d95",
+               "Shell": "#89e051", "Jupyter Notebook": "#da5b0b", "HCL": "#844fba", "Go": "#00add8",
+               "Rust": "#dea584", "Kotlin": "#a97bff", "SCSS": "#c6538c", "Dockerfile": "#384d54"}
 
 _metrics = {}
 
@@ -159,16 +192,29 @@ def prompt(s, x, y, cmd, size=13):
 
 
 # ── data ─────────────────────────────────────────────────────────────────
-def fetch(login, token):
-    body = json.dumps({"query": QUERY, "variables": {"login": login}}).encode()
+def graphql(query, variables, token):
+    body = json.dumps({"query": query, "variables": variables}).encode()
     req = urllib.request.Request("https://api.github.com/graphql", data=body, headers={
         "Authorization": f"bearer {token}", "Content-Type": "application/json",
         "User-Agent": "profile-readme-terminal"})
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(req, timeout=90) as r:
         payload = json.load(r)
     if "errors" in payload and not payload.get("data"):
         raise SystemExit(f"GraphQL error: {payload['errors']}")
     return payload["data"]["user"]
+
+
+def fetch(login, token):
+    user = graphql(QUERY, {"login": login}, token)
+    try:
+        hours = graphql(HOURS_QUERY, {"login": login, "id": user["id"]}, token)
+        user["commitTimes"] = [c["authoredDate"] for r in hours["repositories"]["nodes"]
+                               for c in (((r.get("defaultBranchRef") or {}).get("target") or {})
+                                         .get("history") or {}).get("nodes") or []]
+    except Exception as e:  # the hour chart is a bonus; never fail the whole run over it
+        print(f"warning: could not read commit times: {e}")
+        user["commitTimes"] = []
+    return user
 
 
 def sample():
@@ -192,8 +238,26 @@ def sample():
     nodes = [{"stargazerCount": 1, "languages": {"edges": [{"size": s * 1000, "node": {"name": n}}]}}
              for n, s in langs]
     total = sum(x["contributionCount"] for w in weeks for x in w["contributionDays"])
-    return {"repositories": {"totalCount": 33, "nodes": nodes + [{"stargazerCount": 1, "languages": {"edges": []}}] * 24},
-            "contributionsCollection": {"contributionCalendar": {"totalContributions": total, "weeks": weeks}}}
+    prim = ["JavaScript"] * 9 + ["TypeScript"] * 5 + ["Java"] * 5 + ["Python"] * 4 + ["CSS"] * 4 + ["HTML"] * 3
+    for i, n in enumerate(nodes):
+        n["primaryLanguage"] = {"name": prim[i]}
+    extra = [{"stargazerCount": 1, "languages": {"edges": []}, "primaryLanguage": {"name": prim[6 + i]}}
+             for i in range(24)]
+    by_repo = [("Java", 220), ("JavaScript", 150), ("Python", 90), ("TypeScript", 70), ("HTML", 56)]
+    times = []
+    for _ in range(420):
+        h = rnd.choice([0, 0, 1, 1, 1, 2, 3, 11, 12, 12, 13, 15, 17, 19, 20, 21, 22, 22, 23, 23, 23])
+        times.append(f"2026-10-{rnd.randint(1, 28):02d}T{(h - 5) % 24:02d}:{rnd.randint(0, 59):02d}:00Z")
+    return {"pullRequests": {"totalCount": 76}, "issues": {"totalCount": 1},
+            "repositoriesContributedTo": {"totalCount": 31},
+            "repositories": {"totalCount": 33, "nodes": nodes + extra},
+            "contributionsCollection": {
+                "totalCommitContributions": 586,
+                "commitContributionsByRepository": [
+                    {"contributions": {"totalCount": c}, "repository": {"primaryLanguage": {"name": n}}}
+                    for n, c in by_repo],
+                "contributionCalendar": {"totalContributions": total, "weeks": weeks}},
+            "commitTimes": times}
 
 
 def summarise(user):
@@ -213,7 +277,28 @@ def summarise(user):
     for repo in user["repositories"]["nodes"]:
         for e in (repo.get("languages") or {}).get("edges") or []:
             langs[e["node"]["name"]] = langs.get(e["node"]["name"], 0) + e["size"]
-    return dict(total=cal["totalContributions"], current=cur, longest=longest, weeks=cal["weeks"],
+    by_repo = {}
+    for repo in user["repositories"]["nodes"]:
+        name = (repo.get("primaryLanguage") or {}).get("name")
+        if name:
+            by_repo[name] = by_repo.get(name, 0) + 1
+    cc = user["contributionsCollection"]
+    by_commit = {}
+    for item in cc.get("commitContributionsByRepository") or []:
+        name = ((item.get("repository") or {}).get("primaryLanguage") or {}).get("name")
+        if name:
+            by_commit[name] = by_commit.get(name, 0) + item["contributions"]["totalCount"]
+    hours = [0] * 24
+    for t in user.get("commitTimes") or []:
+        hours[(dt.datetime.strptime(t[:19], "%Y-%m-%dT%H:%M:%S") + IST).hour] += 1
+    return dict(lang_repo=sorted(by_repo.items(), key=lambda kv: -kv[1]),
+                lang_commit=sorted(by_commit.items(), key=lambda kv: -kv[1]),
+                commits=cc.get("totalCommitContributions", 0),
+                prs=(user.get("pullRequests") or {}).get("totalCount", 0),
+                issues=(user.get("issues") or {}).get("totalCount", 0),
+                contributed=(user.get("repositoriesContributedTo") or {}).get("totalCount", 0),
+                hours=hours,
+                total=cal["totalContributions"], current=cur, longest=longest, weeks=cal["weeks"],
                 weekly=[sum(x["contributionCount"] for x in w["contributionDays"]) for w in cal["weeks"]],
                 repos=user["repositories"]["totalCount"],
                 stars=sum(r["stargazerCount"] for r in user["repositories"]["nodes"]),
@@ -319,6 +404,102 @@ def build_activity(d, out):
            f"peak {max(weekly, default=0)}.")
 
 
+def lang_color(name, i):
+    return LANG_COLORS.get(name, [GREEN, CYAN, MINT, BLUE, AMBER, PINK][i % 6])
+
+
+def build_donut(d, out, key, fname, title, cmd, unit, note):
+    import math
+    s = Svg(490, 270)
+    window(s, title)
+    prompt(s, 20, 62, cmd, 12.5)
+    top = d[key][:5]
+    total = sum(v for _, v in top) or 1
+    if not top:
+        s.text(20, 110, "no data yet", "mono", 13, MUTED)
+    for i, (name, v) in enumerate(top):
+        y = 100 + i * 30
+        col = lang_color(name, i)
+        s.add(f'<g class="fi" style="--d:{.2 + i * .12:.2f}s">')
+        s.add(f'<rect x="20" y="{y - 11}" width="13" height="13" rx="2" fill="{col}"/>')
+        s.text(42, y, name, "mono", 13, TEXT)
+        s.text(256, y, f"{v} {unit}", "mono", 11, MUTED, anchor="end")
+        s.add("</g>")
+    cx, cy, r = 378, 156, 66
+    s.add(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{LINE}" stroke-width="26"/>')
+    acc = 0.0
+    for i, (name, v) in enumerate(top):
+        frac = v / total
+        a0 = -math.pi / 2 + 2 * math.pi * acc
+        a1 = -math.pi / 2 + 2 * math.pi * (acc + frac) - (.02 if len(top) > 1 else 0)
+        large = 1 if (a1 - a0) > math.pi else 0
+        x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
+        x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
+        s.add(f'<path class="dr" pathLength="1" style="animation-delay:{.3 + i * .25:.2f}s" '
+              f'd="M{x0:.1f},{y0:.1f} A{r},{r} 0 {large} 1 {x1:.1f},{y1:.1f}" fill="none" '
+              f'stroke="{lang_color(name, i)}" stroke-width="26"/>')
+        acc += frac
+    if top:
+        lead = f"{100 * top[0][1] / total:.0f}%"
+        s.text(cx, cy + 2, lead, "monoh", 20, WHITE, anchor="middle")
+        s.text(cx, cy + 20, top[0][0][:12], "mono", 10, MUTED, anchor="middle")
+    s.text(20, 256, note, "mono", 10, MUTED)
+    s.save(os.path.join(out, fname), f"{title}: " + ", ".join(f"{n} {v} {unit}" for n, v in top))
+
+
+def build_profile(d, out):
+    s = Svg(490, 270)
+    window(s, "gh profile  —  stats")
+    prompt(s, 20, 62, "gh profile --stats", 12.5)
+    rows = [("total stars", f"{d['stars']}", GREEN), ("commits", f"{d['commits']:,}", CYAN),
+            ("pull requests", f"{d['prs']}", MINT), ("issues", f"{d['issues']}", AMBER),
+            ("contributed to", f"{d['contributed']} repos", BLUE)]
+    notes = ["own public repos", "past 12 months", "all time", "all time", "all time"]
+    for i, ((k, v, col), note) in enumerate(zip(rows, notes)):
+        y = 96 + i * 28
+        s.add(f'<g class="fi" style="--d:{.3 + i * .2:.2f}s">')
+        e = s.spans(20, y, [("[", "mono", MUTED), ("+", "monob", GREEN), ("] ", "mono", MUTED), (k, "mono", TEXT)], 13)
+        s.text(e + 6, y, "." * max(2, int((300 - e - 12) / tw("mono", ".", 13))), "mono", 13, LINE)
+        s.text(306, y, v, "monoh", 13, col)
+        s.text(470, y, note, "mono", 10.5, MUTED, anchor="end")
+        s.add("</g>")
+    s.text(20, 256, "pull requests and issues opened, repos with commits, issues or PRs", "mono", 10, MUTED)
+    s.save(os.path.join(out, "term-profile.svg"),
+           f"Profile stats: {d['stars']} stars, {d['commits']:,} commits in the past year, {d['prs']} pull requests, "
+           f"{d['issues']} issues, contributed to {d['contributed']} repositories.")
+
+
+def build_hours(d, out):
+    s = Svg(490, 270)
+    window(s, "commits by hour  —  IST (UTC+5:30)")
+    prompt(s, 20, 62, "git log --date=ist | hours", 12.5)
+    hrs = d["hours"]
+    top = max(max(hrs), 1)
+    nice = max(4, -(-top // 4) * 4)
+    x0, x1, y0, y1 = 52, 470, 84, 222
+    for g in range(5):
+        y = y1 - (y1 - y0) * g / 4
+        dash = "" if g == 0 else ' stroke-dasharray="3 6"'
+        s.add(f'<line x1="{x0}" y1="{y:.1f}" x2="{x1}" y2="{y:.1f}" stroke="{LINE}"{dash}/>')
+        s.text(x0 - 8, y + 4, str(int(nice * g / 4)), "mono", 9.5, MUTED, anchor="end")
+    bw = (x1 - x0) / 24
+    peak = hrs.index(max(hrs))
+    for h, v in enumerate(hrs):
+        if not v:
+            continue
+        bh = (y1 - y0) * v / nice
+        col = AMBER if h == peak else GREEN
+        s.add(f'<rect class="fi" style="--d:{.2 + h * .04:.2f}s" x="{x0 + h * bw + 1.5:.1f}" y="{y1 - bh:.1f}" '
+              f'width="{bw - 3:.1f}" height="{bh:.1f}" rx="1.5" fill="{col}"/>')
+    for h in (0, 6, 12, 18, 23):
+        s.text(x0 + h * bw + bw / 2, y1 + 15, str(h), "mono", 9.5, MUTED, anchor="middle")
+    night = sum(hrs[h] for h in list(range(21, 24)) + list(range(0, 5)))
+    share = 100 * night / max(1, sum(hrs))
+    s.text(20, 256, f"peak hour: {peak}:00  ·  {share:.0f}% of commits between 9 pm and 5 am", "mono", 10.5, AMBER)
+    s.save(os.path.join(out, "term-hours.svg"),
+           f"Commits by hour of day in India time: busiest hour {peak}:00, {share:.0f}% of commits between 9 pm and 5 am.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--user", default="arman080325")
@@ -337,6 +518,12 @@ def main():
     build_recon(d, a.out)
     build_langs(d, a.out)
     build_activity(d, a.out)
+    build_donut(d, a.out, "lang_repo", "term-langs-repo.svg", "languages  —  by repo", "lang --count --by=repo",
+                "repos", "primary language of each public repository")
+    build_donut(d, a.out, "lang_commit", "term-langs-commit.svg", "languages  —  by commit",
+                "lang --count --by=commit", "commits", "commits in the past 12 months, by repository language")
+    build_profile(d, a.out)
+    build_hours(d, a.out)
     print(f"stats: {d['total']} contributions, streak {d['current']}/{d['longest']}, {d['repos']} repos, "
           f"top {[n for n, _ in d['langs'][:6]]}")
 

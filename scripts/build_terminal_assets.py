@@ -237,8 +237,13 @@ def build_hero():
     P = 18
     s = Svg(1000, 430)
     s.style(BLINK + PULSE)
-    s.defs.append(f'<linearGradient id="nameg" x1="0" x2="1"><stop offset="0" stop-color="{GREEN}"/>'
-                  f'<stop offset=".55" stop-color="{MINT}"/><stop offset="1" stop-color="{CYAN}"/></linearGradient>'
+    s.defs.append('<linearGradient id="nameg" x1="0" x2="1"><stop offset="0" stop-color="#5dff9d"/>'
+                  '<stop offset=".5" stop-color="#2dffd2"/><stop offset="1" stop-color="#22d8ff"/></linearGradient>'
+                  '<linearGradient id="nameu" x1="0" x2="1"><stop offset="0" stop-color="#5dff9d"/>'
+                  '<stop offset="1" stop-color="#22d8ff" stop-opacity="0"/></linearGradient>'
+                  '<filter id="nglow" x="-5%" y="-40%" width="110%" height="180%"><feGaussianBlur stdDeviation="9" result="b"/>'
+                  '<feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 1 0 0 .5  0 0 1 0 .4  0 0 0 .55 0" result="g"/>'
+                  '<feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>'
                   f'<linearGradient id="fadeL" x1="0" x2="1"><stop offset="0" stop-color="{TERM}"/>'
                   f'<stop offset=".6" stop-color="{TERM}" stop-opacity=".85"/>'
                   f'<stop offset="1" stop-color="{TERM}" stop-opacity="0"/></linearGradient>'
@@ -247,8 +252,8 @@ def build_hero():
                   f'<pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse">'
                   f'<rect width="4" height="1" fill="#000" opacity=".35"/></pattern>')
     chrome(s, 0, 0, 1000, 430, "armanxploits@fsociety: ~ (zsh)")
-    matrix_rain(s, 540, 998, 36, 428, 16, seed=13, opacity=.22)
-    s.add('<rect x="1" y="35" width="700" height="393" fill="url(#fadeL)"/>')
+    matrix_rain(s, 790, 998, 36, 428, 8, seed=13, opacity=.22)
+    s.add('<rect x="1" y="35" width="900" height="393" fill="url(#fadeL)"/>')
     x = 32
     prompt = [("armanxploits", "monob", GREEN), ("@", "mono", MUTED), ("fsociety", "monob", CYAN),
               (":~$ ", "mono", WHITE)]
@@ -268,8 +273,8 @@ def build_hero():
         s.text(dots_x, y, res, "monob", 14, col)
         s.add("</g>")
         y += 22
-    # name with subtle glitch
-    k = appear(s, 4.1, P, dur=.4, rise=10)
+    # name: large display face, always on screen (fades in once), with an occasional glitch
+    k = appear(s, .2, P, dur=.6, rise=10, once=True)
     gk = s.uid("g")
     s.style(f".{gk}a{{animation:{gk}a 4s infinite steps(1)}}.{gk}b{{animation:{gk}b 4s infinite steps(1)}}"
             f"@keyframes {gk}a{{0%,93%,100%{{transform:translate(0,0);opacity:0}}94%{{transform:translate(-5px,1px);opacity:.8}}"
@@ -277,23 +282,27 @@ def build_hero():
             f"@keyframes {gk}b{{0%,93%,100%{{transform:translate(0,0);opacity:0}}94%{{transform:translate(5px,-1px);opacity:.8}}"
             f"96%{{transform:translate(-3px,1px);opacity:.8}}98%{{opacity:0}}}}")
     s.add(f'<g class="{k}">')
-    s.text(x - 2, 262, "Arman Ahemad Khan", "monoh", 54, CYAN, cls=f"{gk}a")
-    s.text(x - 2, 262, "Arman Ahemad Khan", "monoh", 54, PINK, cls=f"{gk}b")
-    s.text(x - 2, 262, "Arman Ahemad Khan", "monoh", 54, "url(#nameg)", 'filter="url(#glow)"')
+    name, nsize = "Arman Ahemad Khan", 78
+    s.text(x - 4, 270, name, "head", nsize, CYAN, 'letter-spacing="-2" opacity="0"', cls=f"{gk}a")
+    s.text(x - 4, 270, name, "head", nsize, PINK, 'letter-spacing="-2" opacity="0"', cls=f"{gk}b")
+    s.text(x - 4, 270, name, "head", nsize, "url(#nameg)",
+           'letter-spacing="-2" stroke="#04210f" stroke-width="1.4" paint-order="stroke" filter="url(#nglow)"')
+    nw = tw("head", name, nsize) - 2 * len(name)
+    s.add(f'<rect x="{x}" y="284" width="{nw:.0f}" height="3" rx="1.5" fill="url(#nameu)"/>')
     s.add("</g>")
     k = appear(s, 4.6, P, dur=.3)
     s.add(f'<g class="{k}">')
-    s.spans(x, 296, [("// ", "mono", MUTED), ("Full-Stack Developer", "monob", CYAN), ("  &&  ", "mono", MUTED),
+    s.spans(x, 318, [("// ", "mono", MUTED), ("Full-Stack Developer", "monob", CYAN), ("  &&  ", "mono", MUTED),
                      ("Ethical Hacker", "monob", GREEN), ("  &&  ", "mono", MUTED),
                      ("CSE '27", "monob", BLUE)], 17)
     s.add("</g>")
-    type_on(s, x, 334, [("> ", "monob", GREEN),
+    type_on(s, x, 354, [("> ", "monob", GREEN),
                         ("I build the web by day. I break it to secure it by night.", "mono", TEXT)],
             16, 5.2, 2.6, P)
     k = appear(s, 8.0, P, dur=.05)
     s.add(f'<g class="{k}">')
-    e = s.spans(x, 390, prompt, 15)
-    s.add(f'<rect class="blink" x="{e + 2:.0f}" y="377" width="9" height="17" fill="{GREEN}"/>')
+    e = s.spans(x, 402, prompt, 15)
+    s.add(f'<rect class="blink" x="{e + 2:.0f}" y="389" width="9" height="17" fill="{GREEN}"/>')
     s.add("</g>")
     # status chip
     s.add(f'<rect x="842" y="54" width="128" height="26" rx="13" fill="{TERM}" stroke="{BORDER}"/>'

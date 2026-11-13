@@ -185,6 +185,10 @@ const hacker = {
 
 <img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-recon.svg" width="49%" alt="recon on self: contributions, streaks, active days, public repositories and stars"/> <img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-langs.svg" width="49%" alt="cloc by language: share of code by language across my repositories"/>
 
+<img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-langs-repo.svg" width="49%" alt="Top languages by repository"/> <img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-langs-commit.svg" width="49%" alt="Top languages by commits in the past year"/>
+
+<img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-profile.svg" width="49%" alt="Profile stats: stars, commits, pull requests, issues and repositories contributed to"/> <img src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-hours.svg" width="49%" alt="Commits by hour of day in India time"/>
+
 <img src="https://github-readme-streak-stats.herokuapp.com?user=arman080325&background=0a0e14&border=30363d&border_radius=10&ring=00d8ff&fire=00ff41&currStreakNum=e6f1ff&currStreakLabel=00d8ff&sideNums=e6f1ff&sideLabels=00ff9d&dates=8b949e&stroke=30363d" alt="Contribution streak"/>
 
 <img width="100%" src="https://raw.githubusercontent.com/arman080325/arman080325/output-terminal/term-activity.svg" alt="Contributions per week over the last 52 weeks"/>
